@@ -4,14 +4,37 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [currentTime, setCurrentTime] = useState(0)
+  const [product, setProduct] = useState({})
 
-  useEffect(() => {
-    fetch('/api/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
-    });
-  }, []);
+  // useEffect(() => {
+  //   fetch(`/api/read/product/${product.id}`).then(res => res.json()).then(data => {
+  //     setProduct(data);
+  //   });
+  // }, [product]);
+
+  function create(formData) {
+    fetch(`/api/create/product/${formData.get("productName")}`, {method: "POST"}).then(res => res.json()).then(data => {
+      setProduct(data)
+    })
+  }
+
+  function read(formData) {
+    fetch(`/api/read/product/${formData.get("productId")}`, {method: "GET"}).then(res => res.json()).then(data => {
+      setProduct(data)
+    })
+  }
+
+  function update(formData) {
+    fetch(`/api/update/product/${formData.get("productId")}/${formData.get("productName")}`, {method: "PATCH"}).then(res => res.json()).then(data => {
+      setProduct(data)
+    })
+  }
+
+  function deleteProduct(formData) {
+    fetch(`/api/delete/product/${formData.get("productId")}`, {method: "DELETE"}).then(res => res.json()).then(data => {
+      setProduct(data)
+    })
+  }
 
   return (
     <>
