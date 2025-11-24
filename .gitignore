@@ -25,3 +25,7 @@ dist-ssr
 
 # Virtual environments
 .venv
+
+__pycache__
+
+app.db
