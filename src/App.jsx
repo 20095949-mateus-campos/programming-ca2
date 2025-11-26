@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+// import './App.css'
+import Home from './components/Home'
+import Navbar from './components/Navbar'
+import Read from './components/Read'
+import Create from './components/Create'
 
 // function Create() {
 //   return (
