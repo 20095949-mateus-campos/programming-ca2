@@ -2,14 +2,6 @@ from app import app, db
 from .models import Product
 from markupsafe import escape
 
-@app.get('/api/read/products')
-def get_products():
-    try:
-        products = db.session.query(Product).all()
-        return [{'id': product.id, 'name': product.name} for product in products]
-    except:
-        return []
-
 @app.post('/api/create/product/<product_name>')
 def create_product(product_name):
     product = Product(name=escape(product_name))
@@ -19,6 +11,13 @@ def create_product(product_name):
 
 @app.get('/api/read/product/<int:product_id>')
 def read_product(product_id):
+    if product_id == 0:
+        try:
+            products = db.session.query(Product).all()
+            return [{'id': product.id, 'name': product.name} for product in products]
+        except:
+            return []
+    
     try:
         product = db.session.get_one(Product, escape(product_id))
         return {'id': product.id, 'name': product.name}
