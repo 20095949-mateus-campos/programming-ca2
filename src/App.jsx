@@ -26,10 +26,39 @@ function App() {
   //   });
   // }, [product]);
 
-  function create(formData) {
-    fetch(`/api/create/product/${formData.get("productName")}`, {method: "POST"}).then(res => res.json()).then(data => {
-      setProduct(data)
+  function home() {
+    setPage(<Home read={read}/>)
+  }
+
+  async function read(entity, id = 0) {
+    
+
+    await fetch(`/api/read/${entity}/${id}`, {method: "GET"}).then(res => res.json()).then(data => {
+      json = data
     })
+
+    console.log(json)
+    
+    // if (id == 0){
+    //   // console.log("here 1")
+    //   // setJson([{id: 1, name: "platform"},{id: 2, name: "jig"}])
+    //   // json = [{id: 1, name: "platform"},{id: 2, name: "jig"}]
+    // }else{
+    //   console.log("here 2")
+    //   // setJson({id: 1, name: "platform"})
+    //   // json = {id: 1, name: "platform"}
+    // }
+    setPage(<Read entity={entity} json={json} read={read} create={create}/>)
+  }
+
+  async function create(entity, from) {
+    if (from == "read")
+      setPage(<Create />)
+    else {
+      await fetch(`/api/create/${entity}`, {method: "POST"}).then(res => res.json()).then(data => {
+        json = data
+      })
+    }
   }
 
   function read(formData) {
