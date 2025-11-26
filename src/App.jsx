@@ -61,11 +61,11 @@ function App() {
     }
   }
 
-  function read(formData) {
-    fetch(`/api/read/product/${formData.get("productId")}`, {method: "GET"}).then(res => res.json()).then(data => {
-      setProduct(data)
-    })
-  }
+  // function read(formData) {
+  //   fetch(`/api/read/product/${formData.get("productId")}`, {method: "GET"}).then(res => res.json()).then(data => {
+  //     setProduct(data)
+  //   })
+  // }
 
   function update(formData) {
     fetch(`/api/update/product/${formData.get("productId")}/${formData.get("productName")}`, {method: "PATCH"}).then(res => res.json()).then(data => {
@@ -78,6 +78,27 @@ function App() {
       setProduct(data)
     })
   }
+
+  // async function getProductList() {
+  //   return await fetch(`/api/read/products`, {method: "GET"}).then(res => res.json())
+  // }
+
+  // const [products, setProducts] = useState([])
+
+  // function ProductList() {
+  //   useEffect(() => {
+  //     getProductList().then(products => setProducts(products))
+  //   }, [])
+
+  //   let productList = products.map(p => <p>ID: {p.id} | NAME: {p.name}</p>)
+
+  //   return (
+  //     <>
+  //       <p>Product List</p>
+  //       {productList}
+  //     </>
+  //   )
+  // }
 
   return (
     <>
@@ -117,7 +138,11 @@ function App() {
       <form action={deleteProduct}>
         <input placeholder="prodcut id" name="productId"></input>
         <button type="submit" name="button" value="submit">Delete</button>
-      </form>
+      </form> */}
+      </div>
+      </div>
+      </div>
+      </div>
     </>
   )
 }
