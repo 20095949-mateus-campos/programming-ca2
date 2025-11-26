@@ -17,8 +17,10 @@ import Create from './components/Create'
 //   )
 // }
 
-function App() {
-  const [product, setProduct] = useState({})
+export default function App() {
+  // const [json, setJson] = useState({})
+  const [page, setPage] = useState(<Home read={read}/>)
+  let json = null
 
   // useEffect(() => {
   //   fetch(`/api/read/product/${product.id}`).then(res => res.json()).then(data => {
