@@ -1,11 +1,11 @@
 export default function Home({funcs}) {
     return (
         <>
-            <button class="button is-block is-info is-large is-fullwidth" onClick={funcs}>Products</button>
+            <button class="button is-block is-info is-large is-fullwidth" onClick={() => read("product")}>Products</button>
             <br />
-            <button class="button is-block is-info is-large is-fullwidth" onClick={funcs}>Work Orders</button>
+            <button class="button is-block is-info is-large is-fullwidth" onClick={() => read("work-order")}>Work Orders</button>
             <br />
-            <button class="button is-block is-info is-large is-fullwidth" onClick={funcs}>Clients</button>
+            <button class="button is-block is-info is-large is-fullwidth" onClick={() => read("client")}>Clients</button>
         </>
     )
 }
