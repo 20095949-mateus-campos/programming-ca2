@@ -1,19 +1,36 @@
 export default function Create() {
     return (
         <>
-            <div class="hero-head">
-                <nav class="navbar">
-                    <div class="container">
-                        <div id="navbarMenuHeroA" class="navbar-menu">
-                            <div class="navbar-end">
-                                <a class="navbar-item">Products</a>
-                                <a class="navbar-item">Work Orders</a>
-                                <a class="navbar-item">Clients</a>
-                            </div>
-                        </div>
+            {/* <form id="form-delete" method="POST" action="{{ url_for('auth.delete', user_id=user.id) }}"></form> */}
+                <div class="field">
+                    <div class="control">
+                        <input form="form-update" class="input is-large" type="email" name="email" value="{json.name}"
+                            disabled aria-label="email input" placeholder="Email" />
                     </div>
-                </nav>
-            </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input form="form-update" class="input is-large" type="text" name="name" value="{{ user.name }}"
+                            disabled aria-label="name input" placeholder="Name" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input form="form-update" class="input is-large" type="password" name="password" value="********"
+                            disabled aria-label="password input" placeholder="Password" />
+                    </div>
+                </div>
+                <div class="field control">
+                    <button id="button-update" class="button is-block is-info is-large is-fullwidth" type="button"
+                            onclick="toggleForm('{{ user.email }}', '{{ user.name }}', '********')">
+                        Update
+                    </button>
+                </div>
+                <div class="field control">
+                    <input form="form-delete" id="button-delete" class="button is-block is-danger is-large is-fullwidth"
+                        type="submit"
+                        onclick="return confirm('Are you sure you want to delete your account?')" value="Delete" />
+                </div>
         </>
     )
 }
