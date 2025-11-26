@@ -52,7 +52,19 @@ function App() {
 
   return (
     <>
-      <p>CREATE:</p>
+    <Navbar home={home} read={read}/>
+    <div class="hero-body">
+        <div class="container has-text-centered">
+      <div class="column is-4 is-offset-4">
+        <div class="box">
+      
+      {page}
+
+      {/* <Read /> */}
+
+      {/* <ProductList /> */}
+
+      {/* <p>CREATE:</p>
       <form action={create}>
         <input placeholder="prodcut name" name="productName"></input>
         <button type="submit" name="button" value="submit">Create</button>
