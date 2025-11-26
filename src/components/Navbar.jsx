@@ -1,4 +1,4 @@
-export default function Navbar({funcs}) {
+export default function Navbar({home, read}) {
     return (
         <>
             <div className="hero-head">
