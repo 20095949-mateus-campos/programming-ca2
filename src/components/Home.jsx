@@ -1,4 +1,4 @@
-export default function Home({funcs}) {
+export default function Home({read}) {
     return (
         <>
             <button class="button is-block is-info is-large is-fullwidth" onClick={() => read("product")}>Products</button>
