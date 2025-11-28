@@ -39,6 +39,27 @@ export default function Read({entity, json, read, create}) {
             </>
         )
     } else {
+        let items = []
+
+        Object.keys(json).forEach(item => {
+            // console.log(item.name + ' ' + item.id)
+            if (item != 'id') {
+            items.push(<div class="field">
+                        <div class="control">
+                            <input disabled class="input is-large" name={item}
+                                placeholder={item} defaultValue={json[item]}/>
+                        </div>
+                    </div>)
+            }
+        })
+
+        function toggleForm() {
+            Array.from(document.getElementsByTagName('input')).map(el => el.disabled = false)
+            setReady(true)
+        }
+
+        const [ready, setReady] = useState(false)
+
         return (
             <>
                 {/* <form id="form-delete" method="POST" action="{{ url_for('auth.delete', user_id=user.id) }}"></form> */}
