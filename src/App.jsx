@@ -19,6 +19,7 @@ import Create from './components/Create'
 
 export default function App() {
   // const [json, setJson] = useState({})
+  const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(<Home read={read}/>)
   let json = null
 
@@ -37,6 +38,9 @@ export default function App() {
 
     await fetch(`/api/read/${entity}/${id}`, {method: "GET"}).then(res => res.json()).then(data => {
       json = data
+      // json = JSON.parse(data)
+          setPage(<Read entity={entity} json={json} read={read} create={create} update={update} delete_row={delete_row}/>)
+    setLoading(false)
     })
 
     console.log(json)
@@ -138,7 +142,12 @@ export default function App() {
       <div class="column is-4 is-offset-4">
         <div class="box">
       
-      {page}
+      {loading ? 
+        "Loading..."
+      :
+        page
+
+      }
 
       {/* <Read /> */}
 
