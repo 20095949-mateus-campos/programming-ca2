@@ -53,13 +53,28 @@ export default function App() {
     setPage(<Read entity={entity} json={json} read={read} create={create}/>)
   }
 
-  async function create(entity, from) {
-    if (from == "read")
-      setPage(<Create />)
+  async function create(entity, post = null) {
+    let props = []
+    switch (entity) {
+      case "client":
+        props = ['name', 'email', 'phone', 'address']
+        break
+    }
+
+    if (post == null)
+      setPage(<Create entity={entity} create={create} read={read} props={props}/>)
     else {
-      await fetch(`/api/create/${entity}`, {method: "POST"}).then(res => res.json()).then(data => {
-        json = data
-      })
+      console.log('post')
+      console.log(post)
+
+      await fetch(`/api/create/${entity}`, {method: "POST",headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }, body: JSON.stringify(post)})
+    
+    // .then(res => res.json()).then(data => {
+    //     json = data
+    //   })
     }
   }
 
