@@ -1,11 +1,38 @@
 from app import app, db
 from .models import Product
 from markupsafe import escape
+from flask import request
+import json
 
-@app.post('/api/create/product/<product_name>')
-def create_product(product_name):
-    product = Product(name=escape(product_name))
-    db.session.add(product)
+def solve_entity(entity):
+    if entity in ['bom', 'bop']:
+        return str.upper(entity)
+    elif entity == 'work-order':
+        return ''.join(list(map(lambda x: str.capitalize(x), entity.split('-'))))
+    else:
+        return str.capitalize(entity)
+
+@app.post('/api/create/<entity>')
+def create(entity):
+    entity = escape(entity)
+    kwargs = request.get_json(force=True)
+
+    # print(request.headers)
+    
+    # print(kwargs)
+
+    entity = solve_entity(entity)
+
+    # print(*list(kwargs.values()))
+
+    row = globals()[entity]()
+
+    for k in kwargs:
+        # print(k)
+        # print(kwargs[k])
+        setattr(row, k, kwargs[k])
+
+    db.session.add(row)
     db.session.commit()
     return {'id': product.id, 'name': product.name}
 
