@@ -81,9 +81,14 @@ def update(entity, id):
     db.session.commit()
     return {'id': product.id, 'name': product.name}
 
-@app.delete('/api/delete/product/<int:product_id>')
-def delete_product(product_id):
-    product = db.session.get_one(Product, escape(product_id))
-    db.session.delete(product)
+@app.delete('/api/delete/<entity>/<int:id>')
+def delete(entity, id):
+    entity = escape(entity)
+    id = int(escape(id))
+    
+    entity = solve_entity(entity)
+
+    row = db.session.get_one(globals()[entity], id)
+    db.session.delete(row)
     db.session.commit()
     return {}
