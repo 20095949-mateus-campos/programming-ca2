@@ -101,9 +101,11 @@ export default function App() {
     
   }
 
-  function deleteProduct(formData) {
-    fetch(`/api/delete/product/${formData.get("productId")}`, {method: "DELETE"}).then(res => res.json()).then(data => {
-      setProduct(data)
+  function delete_row(entity, id) {
+    setLoading(true)
+    fetch(`/api/delete/${entity}/${id}`, {method: "DELETE"}).then(res => res.json()).then(data => {
+      setPage(<Read entity={entity} json={data} read={read} create={create} update={update} delete_row={delete_row}/>)
+        setLoading(false)
     })
   }
 
