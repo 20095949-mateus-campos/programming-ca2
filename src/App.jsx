@@ -84,10 +84,21 @@ export default function App() {
   //   })
   // }
 
-  function update(formData) {
-    fetch(`/api/update/product/${formData.get("productId")}/${formData.get("productName")}`, {method: "PATCH"}).then(res => res.json()).then(data => {
-      setProduct(data)
-    })
+  async function update(entity, patch, id) {
+    setLoading(true)
+
+    await fetch(`/api/update/${entity}/${id}`, {method: "PATCH",headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }, body: JSON.stringify(patch)}).then(res => res.json()).then(data => {
+        json = data
+        console.log("json")
+        console.log(data)
+        setPage(<Read entity={entity} json={json} read={read} create={create} update={update}/>)
+        setLoading(false)
+      })
+
+    
   }
 
   function deleteProduct(formData) {
