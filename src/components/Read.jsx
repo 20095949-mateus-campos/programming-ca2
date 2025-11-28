@@ -85,11 +85,32 @@ export default function Read({entity, json, read, create}) {
                 update(entity, data, json.id)}}>
                 {items}
                 <div class="field control">
-                    <button id="button-update" class="button is-block is-info is-large is-fullwidth" type="button"
-                            onclick="toggleForm('{{ user.email }}', '{{ user.name }}', '********')">
+                    { ready ?
+                    <button key="second" id="button-submit" class="button is-block is-info is-large is-fullwidth" type="submit">
+                        Save
+                    </button>:
+                    <button key="first" id="button-update" class="button is-block is-info is-large is-fullwidth"
+                            onClick={toggleForm}>
                         Update
-                    </button>
+                    </button>}
                 </div>
+
+                <div class="field control">
+                    { ready ?
+                    <button id="button-cancel" class="button is-block is-info is-large is-fullwidth" type="button"
+                        onClick={() => read(entity)}>Cancel</button>
+                    :
+                    <button id="button-back" class="button is-block is-info is-large is-fullwidth" type="button"
+                        onClick={() => read(entity)}>Back</button>
+                    }
+                </div>
+                    <button id="button-delete" class="button is-block is-danger is-large is-fullwidth" type="button"
+                        onClick={() => {
+
+                            if (window.confirm("Are you sure?"))
+                                delete_row(entity, json.id)
+
+                        }}>Delete</button>
                 <div class="field control">
                     <input form="form-delete" id="button-delete" class="button is-block is-danger is-large is-fullwidth"
                         type="submit"
