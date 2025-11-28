@@ -62,25 +62,28 @@ export default function Read({entity, json, read, create}) {
 
         return (
             <>
-                {/* <form id="form-delete" method="POST" action="{{ url_for('auth.delete', user_id=user.id) }}"></form> */}
-                <div class="field">
-                    <div class="control">
-                        <input form="form-update" class="input is-large" type="email" name="email" value={json.name}
-                            disabled aria-label="email input" placeholder="Email" />
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="control">
-                        <input form="form-update" class="input is-large" type="text" name="name" value="{{ user.name }}"
-                            disabled aria-label="name input" placeholder="Name" />
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="control">
-                        <input form="form-update" class="input is-large" type="password" name="password" value="********"
-                            disabled aria-label="password input" placeholder="Password" />
-                    </div>
-                </div>
+                <form action={(formData) => {
+
+                // let formData = new FormData(e.target)
+
+                // console.log(formData.get('name'))
+
+                // for (const key of formData.keys()) {
+                //     console.log('key');
+                //     console.log(key);
+                //     }
+
+                let data = {}
+
+                Object.keys(json).forEach(item => {
+                    if (item != 'id')
+                        data[item] = formData.get(item)
+                })
+
+                // console.log(data)
+                
+                update(entity, data, json.id)}}>
+                {items}
                 <div class="field control">
                     <button id="button-update" class="button is-block is-info is-large is-fullwidth" type="button"
                             onclick="toggleForm('{{ user.email }}', '{{ user.name }}', '********')">
