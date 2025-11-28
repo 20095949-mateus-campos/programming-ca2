@@ -36,9 +36,14 @@ def create(entity):
     db.session.commit()
     return {'id': product.id, 'name': product.name}
 
-@app.get('/api/read/product/<int:product_id>')
-def read_product(product_id):
-    if product_id == 0:
+@app.get('/api/read/<entity>/<int:id>')
+def read(entity, id):
+    entity = escape(entity)
+    id = int(escape(id))
+
+    entity = solve_entity(entity)
+
+    if id == 0:
         try:
             products = db.session.query(Product).all()
             return [{'id': product.id, 'name': product.name} for product in products]
