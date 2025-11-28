@@ -1,36 +1,51 @@
-export default function Create() {
+export default function Create({entity, create, read, props}) {
+    let items = []
+
+    props.forEach(item => {
+        // console.log(item.name + ' ' + item.id)
+        items.push(<div class="field">
+                    <div class="control">
+                        <input class="input is-large" name={item}
+                            aria-label="email input" placeholder={item} />
+                    </div>
+                </div>)
+    })
+
     return (
         <>
-            {/* <form id="form-delete" method="POST" action="{{ url_for('auth.delete', user_id=user.id) }}"></form> */}
-                <div class="field">
-                    <div class="control">
-                        <input form="form-update" class="input is-large" type="email" name="email" value="{json.name}"
-                            disabled aria-label="email input" placeholder="Email" />
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="control">
-                        <input form="form-update" class="input is-large" type="text" name="name" value="{{ user.name }}"
-                            disabled aria-label="name input" placeholder="Name" />
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="control">
-                        <input form="form-update" class="input is-large" type="password" name="password" value="********"
-                            disabled aria-label="password input" placeholder="Password" />
-                    </div>
-                </div>
+            <form action={(formData) => {
+
+                // let formData = new FormData(e.target)
+
+                // console.log(formData.get('name'))
+
+                // for (const key of formData.keys()) {
+                //     console.log('key');
+                //     console.log(key);
+                //     }
+
+                let json = {}
+
+                props.forEach(item => {
+                    json[item] = formData.get(item)
+                })
+
+                console.log(json)
+                
+                create(entity, json)}}>
+                {items}
                 <div class="field control">
-                    <button id="button-update" class="button is-block is-info is-large is-fullwidth" type="button"
-                            onclick="toggleForm('{{ user.email }}', '{{ user.name }}', '********')">
-                        Update
+                    <button id="button-update" class="button is-block is-info is-large is-fullwidth" type="submit">
+                        Save
                     </button>
                 </div>
                 <div class="field control">
-                    <input form="form-delete" id="button-delete" class="button is-block is-danger is-large is-fullwidth"
-                        type="submit"
-                        onclick="return confirm('Are you sure you want to delete your account?')" value="Delete" />
+                    <button id="button-delete" class="button is-block is-danger is-large is-fullwidth"
+                        onClick={() => read(entity)}>
+                        Cancel
+                    </button>
                 </div>
+            </form>
         </>
     )
 }
