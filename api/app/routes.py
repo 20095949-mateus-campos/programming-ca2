@@ -63,10 +63,21 @@ def read(entity, id):
     except:
         return {}
 
-@app.patch('/api/update/product/<int:product_id>/<product_name>')
-def update_product(product_id, product_name):
-    product = db.session.get_one(Product, escape(product_id))
-    product.name = escape(product_name)
+@app.patch('/api/update/<entity>/<int:id>')
+def update(entity, id):
+    entity = escape(entity)
+    id = int(escape(id))
+    kwargs = request.get_json(force=True)
+    
+    entity = solve_entity(entity)
+
+    row = db.session.get_one(globals()[entity], id)
+
+    for k in kwargs:
+        # print(k)
+        # print(kwargs[k])
+        setattr(row, k, kwargs[k])
+    
     db.session.commit()
     return {'id': product.id, 'name': product.name}
 
