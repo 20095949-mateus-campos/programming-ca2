@@ -34,7 +34,11 @@ def create(entity):
 
     db.session.add(row)
     db.session.commit()
-    return {'id': product.id, 'name': product.name}
+
+    # print(vars(row))
+
+    return json.dumps({k: vars(row)[k] for k in vars(row) if k != '_sa_instance_state'})
+    # return {'test': 1}
 
 @app.get('/api/read/<entity>/<int:id>')
 def read(entity, id):
@@ -45,14 +49,17 @@ def read(entity, id):
 
     if id == 0:
         try:
-            products = db.session.query(Product).all()
-            return [{'id': product.id, 'name': product.name} for product in products]
+            rows = db.session.query(globals()[entity]).all()
+
+            # return [{'id': row.id, 'name': row.name} for row in rows]
+            return [json.dumps({k: vars(row)[k] for k in vars(row) if k != '_sa_instance_state'}) for row in rows]
         except:
             return []
     
     try:
-        product = db.session.get_one(Product, escape(product_id))
-        return {'id': product.id, 'name': product.name}
+        row = db.session.get_one(globals()[entity], id)
+        # return {'id': row.id, 'name': row.name}
+        return json.dumps({k: vars(row)[k] for k in vars(row) if k != '_sa_instance_state'})
     except:
         return {}
 
