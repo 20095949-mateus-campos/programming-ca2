@@ -1,5 +1,5 @@
 from app import app, db
-from .models import Product
+from .models import *
 from markupsafe import escape
 from flask import request
 import json
