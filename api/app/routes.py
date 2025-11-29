@@ -14,9 +14,22 @@ def solve_entity(entity):
         return str.capitalize(entity)
 
 @app.post('/api/create/<entity>')
-def create(entity):
+def create(entity, **kwargs):
     entity = escape(entity)
-    kwargs = request.get_json(force=True)
+    post = request.get_json(force=True)
+
+
+    print("HERE NOW")
+    print(post)
+    print(kwargs)
+
+    if len(kwargs) != 0:
+        row = globals()[entity]()
+        setattr(row, kwargs['e_1'], kwargs['i_1'])
+        setattr(row, kwargs['e_2'], kwargs['i_2'])
+        db.session.add(row)
+        db.session.commit()
+        return {}
 
     # print(request.headers)
     
@@ -42,6 +55,24 @@ def create(entity):
 
     db.session.add(row)
     db.session.commit()
+
+    for k in post:
+        # print(k)
+        # print(post[k])
+        if k not in row.__annotations__:
+            print("HERE:")
+            print(k)
+            relation = list(post[k].keys())[0]
+
+            print(relation)
+            print(type(json.loads(read(k, post[k][relation]))))
+
+
+            id_2 = json.loads(read(k, post[k][relation]))['id']
+
+
+
+            create(relation, e_1=str.lower(entity), i_1=row.id, e_2=str.lower(k), i_2=id_2)
 
     # print(vars(row))
 
