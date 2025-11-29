@@ -17,6 +17,16 @@ import Create from './components/Create'
 //   )
 // }
 
+const ModelProps = Object.freeze({
+  PRODUCT: ['name', 'blueprint', 'process', 'material'],
+  WORKORDER: ['client', 'product', 'start', 'end', 'cost'],
+  CLIENT: ['name', 'email', 'phone', 'address'],
+  PROCESS: ['name', 'description', 'tool'],
+  MATERIAL: ['name'],
+  TOOL: ['name'],
+})
+
+
 export default function App() {
   // const [json, setJson] = useState({})
   const [loading, setLoading] = useState(false)
