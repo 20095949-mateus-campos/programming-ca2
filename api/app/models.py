@@ -10,6 +10,11 @@ class Client(db.Model):
     phone: so.Mapped[str]
     address: so.Mapped[str]
 
+class Product(db.Model):
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    name: so.Mapped[str]
+    blueprint: so.Mapped[str]
+
 class WorkOrder(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     client: so.Mapped[int] = so.mapped_column(sa.ForeignKey(Client.id))
