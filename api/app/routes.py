@@ -28,10 +28,17 @@ def create(entity):
 
     row = globals()[entity]()
 
-    for k in kwargs:
-        # print(k)
-        # print(kwargs[k])
-        setattr(row, k, kwargs[k])
+    for k in post:
+        print(k)
+        print(post[k])
+        print(vars(row))
+        if k in row.__annotations__:
+            if type(dict(row.metadata.tables['_'.join([str.lower(entity)[:4], str.lower(entity)[4:]])].c)[k].type) is DateTime:
+                post[k] = datetime.strptime(post[k], '%Y-%m-%d').date()
+            
+            setattr(row, k, post[k])
+
+    print(vars(row))
 
     db.session.add(row)
     db.session.commit()
