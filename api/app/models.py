@@ -18,6 +18,7 @@ class Product(db.Model):
 class WorkOrder(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     client: so.Mapped[int] = so.mapped_column(sa.ForeignKey(Client.id))
+    product: so.Mapped[int] = so.mapped_column(sa.ForeignKey(Product.id))
     start: so.Mapped[datetime]
     end: so.Mapped[datetime]
     cost: so.Mapped[float]
