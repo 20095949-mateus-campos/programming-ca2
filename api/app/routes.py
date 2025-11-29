@@ -7,8 +7,8 @@ import json
 def solve_entity(entity):
     if entity in ['bom', 'bop']:
         return str.upper(entity)
-    elif entity == 'work-order':
-        return ''.join(list(map(lambda x: str.capitalize(x), entity.split('-'))))
+    elif entity == 'workorder':
+        return ''.join(list(map(lambda x: str.capitalize(x), [entity[:4], entity[4:]])))
     else:
         return str.capitalize(entity)
 
