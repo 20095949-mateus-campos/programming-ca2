@@ -92,15 +92,42 @@ def read(entity, id):
 
             # return [{'id': row.id, 'name': row.name} for row in rows]
             return [json.dumps({k: vars(row)[k] for k in vars(row) if k != '_sa_instance_state'}) for row in rows]
-        except:
-            return []
-    
+        except Exception as e:
+            if type(e) is TypeError:
+                json_dumps = []
+                json_dump = {}
+                for row in rows:
+                    for k in vars(row):
+                        if k == '_sa_instance_state':
+                            continue
+                        if type(getattr(row, k)) is datetime:
+                            setattr(row, k, getattr(row, k).strftime('%Y-%m-%d'))
+                        json_dump[k] = vars(row)[k]
+                    json_dumps.append(json.dumps(json_dump))
+                    json_dump = {}
+
+                return json_dumps
+            else:
+                return []
+
+
     try:
         row = db.session.get_one(globals()[entity], id)
         # return {'id': row.id, 'name': row.name}
         return json.dumps({k: vars(row)[k] for k in vars(row) if k != '_sa_instance_state'})
-    except:
-        return {}
+    except Exception as e:
+        if type(e) is TypeError:
+            json_dump = {}
+            for k in vars(row):
+                if k == '_sa_instance_state':
+                    continue
+                if type(getattr(row, k)) is datetime:
+                    setattr(row, k, getattr(row, k).strftime('%Y-%m-%d'))
+                json_dump[k] = vars(row)[k]
+
+            return json.dumps(json_dump)
+        else:
+            return {}
 
 @app.patch('/api/update/<entity>/<int:id>')
 def update(entity, id):
