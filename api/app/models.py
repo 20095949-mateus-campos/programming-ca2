@@ -23,43 +23,21 @@ class WorkOrder(db.Model):
     end: so.Mapped[datetime]
     cost: so.Mapped[float]
 
-class Product(db.Model):
-    id: so.Mapped[int] = so.mapped_column(primary_key=True)
-    name: so.Mapped[str]
-
-class Manufacturing(db.Model):
-    word_order: so.Mapped[int] = so.mapped_column(sa.ForeignKey(WorkOrder.id), primary_key=True)
-    product: so.Mapped[int] = so.mapped_column(sa.ForeignKey(Product.id), primary_key=True)
-
-
-class Blueprint(db.Model):
-    id: so.Mapped[int] = so.mapped_column(primary_key=True)
-    product: so.Mapped[int] = so.mapped_column(sa.ForeignKey(Product.id))
-    document_uri: so.Mapped[str]
-
-class BOM(db.Model):
-    id: so.Mapped[int] = so.mapped_column(primary_key=True)
-    product: so.Mapped[int] = so.mapped_column(sa.ForeignKey(Product.id))
-
 class Material(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     name: so.Mapped[str]
 
-class Source(db.Model):
-    bom: so.Mapped[int] = so.mapped_column(sa.ForeignKey(BOM.id), primary_key=True)
+class BOM(db.Model):
+    product: so.Mapped[int] = so.mapped_column(sa.ForeignKey(Product.id), primary_key=True)
     material: so.Mapped[int] = so.mapped_column(sa.ForeignKey(Material.id), primary_key=True)
-
-class BOP(db.Model):
-    id: so.Mapped[int] = so.mapped_column(primary_key=True)
-    product: so.Mapped[int] = so.mapped_column(sa.ForeignKey(Product.id))
 
 class Process(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     name: so.Mapped[str]
     description: so.Mapped[str]
 
-class Execute(db.Model):
-    bop: so.Mapped[int] = so.mapped_column(sa.ForeignKey(BOP.id), primary_key=True)
+class BOP(db.Model):
+    product: so.Mapped[int] = so.mapped_column(sa.ForeignKey(Product.id), primary_key=True)
     process: so.Mapped[int] = so.mapped_column(sa.ForeignKey(Process.id), primary_key=True)
 
 class Tool(db.Model):
