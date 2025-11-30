@@ -14,8 +14,8 @@ const ModelProps = Object.freeze({
   TOOL: ['name'],
 })
 
-
 export default function App() {
+
   // const [json, setJson] = useState({})
   const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(<Home read={read}/>)
@@ -41,7 +41,7 @@ export default function App() {
     setLoading(false)
     })
 
-    console.log(json)
+    // console.log(json)
     
     // if (id == 0){
     //   // console.log("here 1")
@@ -52,16 +52,18 @@ export default function App() {
     //   // setJson({id: 1, name: "platform"})
     //   // json = {id: 1, name: "platform"}
     // }
-    setPage(<Read entity={entity} json={json} read={read} create={create}/>)
+
   }
 
   async function create(entity, post = null) {
-    let props = []
-    switch (entity) {
-      case "client":
-        props = ['name', 'email', 'phone', 'address']
-        break
-    }
+    // let props = []
+    // switch (entity) {
+    //   case "client":
+    //     props = ['name', 'email', 'phone', 'address']
+    //     break
+    // }
+
+    console.log(entity.toUpperCase())
 
     if (post == null)
       setPage(<Create entity={entity} create={create} read={read} props={props}/>)
