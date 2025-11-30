@@ -30,6 +30,11 @@ export default function Read({entity, json, read, create}) {
                         Add
                         </button>
                     </div>
+                    <div className="panel-block">
+                        <button className="button is-link is-outlined is-fullwidth" onClick={() => home()}>
+                        Back
+                        </button>
+                    </div>
                 </nav>
             </>
         )
