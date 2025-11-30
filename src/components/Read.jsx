@@ -9,7 +9,22 @@ export default function Read({entity, json, read, create}) {
             items.push(<a class="panel-block" onClick={() => read(entity, item.id)}>{item.name}</a>)
         })
 
-        // console.log(items)
+        console.log(entity)
+
+        let capitalize = entity[0].toUpperCase()
+
+        let pluralize = ""
+        if (entity[entity.length-1] == "s")
+            pluralize = entity.slice(1) + "es"
+        else
+            pluralize = entity.slice(1) + "s"
+
+        let heading = capitalize + pluralize
+
+
+        if (entity == "workorder") {
+            heading = heading.slice(0, 4) + " " + heading[4].toUpperCase() + heading.slice(5)
+        }
 
         return (
             <>
