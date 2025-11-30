@@ -144,7 +144,8 @@ def update(entity, id):
         setattr(row, k, kwargs[k])
     
     db.session.commit()
-    return {'id': product.id, 'name': product.name}
+
+    return read(entity, id)
 
 @app.delete('/api/delete/<entity>/<int:id>')
 def delete(entity, id):
