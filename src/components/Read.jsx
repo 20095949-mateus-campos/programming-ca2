@@ -1,5 +1,10 @@
-export default function Read({entity, json, read, create}) {
-    // console.log(json)
+import { useState } from "react"
+import Dropdown from "./Dropdown"
+import Field from "./Field"
+
+export default function Read({entity, json, read, create, update, delete_row, home}) {
+
+    console.log(json)
 
     if (Array.isArray(json)) {
         let items = []
