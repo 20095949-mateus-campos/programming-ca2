@@ -27,24 +27,33 @@ export default function Create({entity, create, read, props}) {
                 let json = {}
 
                 props.forEach(item => {
-                    json[item] = formData.get(item)
+                    if (item == 'tool')
+                        json[item] = {Use: formData.get(item)}
+                    else if (item == 'process')
+                        json[item] = {BOP: formData.get(item)}
+                    else if (item == 'material')
+                        json[item] = {BOM: formData.get(item)}
+                    else
+                        json[item] = formData.get(item)
                 })
 
                 console.log(json)
                 
                 create(entity, json)}}>
-                {items}
-                <div class="field control">
-                    <button id="button-update" class="button is-block is-info is-large is-fullwidth" type="submit">
+                
+                <nav className="panel">
+                    <p className="panel-heading">{entity}</p>
+                    {items}
+                    <div className="panel-block">
+                    <button id="button-update" className="button is-link is-outlined is-fullwidth" type="submit">
                         Save
-                    </button>
-                </div>
-                <div class="field control">
-                    <button id="button-delete" class="button is-block is-danger is-large is-fullwidth"
+                    </button></div>
+                    <div className="panel-block">
+                    <button type="button" id="button-delete" className="button is-link is-outlined is-fullwidth"
                         onClick={() => read(entity)}>
                         Cancel
-                    </button>
-                </div>
+                    </button></div>
+                </nav>
             </form>
         </>
     )
