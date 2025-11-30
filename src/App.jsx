@@ -136,11 +136,16 @@ export default function App() {
 
   return (
     <>
-    <Navbar home={home} read={read}/>
-    <div class="hero-body">
-        <div class="container has-text-centered">
-      <div class="column is-4 is-offset-4">
-        <div class="box">
+      <Navbar
+        home={home}
+        read={read}
+      />
+      <div className="hero-body">
+        <div className="container has-text-centered">
+          <div className="column is-4 is-offset-4">
+            <div className="box">
+
+
       
       {loading ? 
         "Loading..."
