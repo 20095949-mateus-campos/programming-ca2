@@ -156,4 +156,4 @@ def delete(entity, id):
     row = db.session.get_one(globals()[entity], id)
     db.session.delete(row)
     db.session.commit()
-    return {}
+    return read(entity)
