@@ -42,7 +42,24 @@ export default function Read({entity, json, read, create}) {
         let items = []
 
         Object.keys(json).forEach(item => {
-            // console.log(item.name + ' ' + item.id)
+            let tag = <Field type={'input'} table={item} id={json[item]} read={read}/>
+
+            if (item == "client" || item == "tool" || item == "product" || item == "material" || item == "process") {
+                        // setDep(item)
+            
+                        // tag = <select name={item}>
+                        //     {manager[item] ? manager[item].map(process => {
+                        //         return <option value={JSON.parse(process).id}>{JSON.parse(process).name}</option>
+                        //     }) : "Loading..."}
+                        //     </select>
+            
+                        tag = <Field type={'id'} table={item} id={json[item]} read={read}/>
+            }
+
+            if (item == 'blueprint') {
+                tag = <Field type={'img'} table={item} id={json[item]} read={read}/>
+            }
+
             if (item != 'id') {
             items.push(<div className="field">
                         <div className="control">
