@@ -13,15 +13,10 @@ export default function Read({entity, json, read, create}) {
 
         return (
             <>
-                <nav class="panel">
-                    <p class="panel-heading">{entity}</p>
-                    <div class="panel-block">
-                        <p class="control has-icons-left">
-                        <input class="input" type="text" placeholder="Search" />
-                        <span class="icon is-left">
-                            <i class="fas fa-search" aria-hidden="true"></i>
-                        </span>
-                        </p>
+                <nav className="panel">
+                    <p className="panel-heading">{heading}</p>
+                    <div className="panel-block">
+                        <input className="input" type="text" placeholder="Search" />
                     </div>
                     <p class="panel-tabs">
                         <a class="is-active">All</a>
@@ -30,8 +25,8 @@ export default function Read({entity, json, read, create}) {
                         <a>Platforms</a>
                     </p>
                     {items}
-                    <div class="panel-block">
-                        <button class="button is-link is-outlined is-fullwidth" onClick={() => create(entity, "read")}>
+                    <div className="panel-block">
+                        <button className="button is-link is-outlined is-fullwidth" onClick={() => create(entity)}>
                         Add
                         </button>
                     </div>
@@ -44,10 +39,10 @@ export default function Read({entity, json, read, create}) {
         Object.keys(json).forEach(item => {
             // console.log(item.name + ' ' + item.id)
             if (item != 'id') {
-            items.push(<div class="field">
-                        <div class="control">
-                            <input disabled class="input is-large" name={item}
-                                placeholder={item} defaultValue={json[item]}/>
+            items.push(<div className="field">
+                        <div className="control">
+                            <label className="label" for={item}>{item}:</label>
+                            {tag}
                         </div>
                     </div>)
             }
@@ -84,38 +79,37 @@ export default function Read({entity, json, read, create}) {
                 
                 update(entity, data, json.id)}}>
                 {items}
-                <div class="field control">
+                <div className="field control">
                     { ready ?
-                    <button key="second" id="button-submit" class="button is-block is-info is-large is-fullwidth" type="submit">
+                    <button key="second" id="button-submit" className="button is-block is-info is-large is-fullwidth" type="submit">
                         Save
                     </button>:
-                    <button key="first" id="button-update" class="button is-block is-info is-large is-fullwidth"
+                    <button key="first" id="button-update" className="button is-block is-info is-large is-fullwidth"
                             onClick={toggleForm}>
                         Update
                     </button>}
                 </div>
 
-                <div class="field control">
+                <div className="field control">
                     { ready ?
-                    <button id="button-cancel" class="button is-block is-info is-large is-fullwidth" type="button"
+                    <button id="button-cancel" className="button is-block is-info is-large is-fullwidth" type="button"
                         onClick={() => read(entity)}>Cancel</button>
                     :
-                    <button id="button-back" class="button is-block is-info is-large is-fullwidth" type="button"
+                    <button id="button-back" className="button is-block is-info is-large is-fullwidth" type="button"
                         onClick={() => read(entity)}>Back</button>
                     }
                 </div>
-                    <button id="button-delete" class="button is-block is-danger is-large is-fullwidth" type="button"
+                    <button id="button-delete" className="button is-block is-danger is-large is-fullwidth" type="button"
                         onClick={() => {
 
                             if (window.confirm("Are you sure?"))
                                 delete_row(entity, json.id)
 
                         }}>Delete</button>
-                <div class="field control">
-                    <input form="form-delete" id="button-delete" class="button is-block is-danger is-large is-fullwidth"
-                        type="submit"
-                        onclick="return confirm('Are you sure you want to delete your account?')" value="Delete" />
+                <div className="field control">
+
                 </div>
+                </form>
             </>
         )
     }
