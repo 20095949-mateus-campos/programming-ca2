@@ -37,7 +37,7 @@ export default function App() {
     await fetch(`/api/read/${entity}/${id}`, {method: "GET"}).then(res => res.json()).then(data => {
       json = data
       // json = JSON.parse(data)
-          setPage(<Read entity={entity} json={json} read={read} create={create} update={update} delete_row={delete_row}/>)
+          setPage(<Read entity={entity} json={json} read={read} create={create} update={update} delete_row={delete_row} home={home}/>)
     setLoading(false)
     })
 
