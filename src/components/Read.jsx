@@ -5,8 +5,12 @@ export default function Read({entity, json, read, create}) {
         let items = []
 
         json.forEach(item => {
+            item = JSON.parse(item)
             console.log(item.name + ' ' + item.id)
-            items.push(<a class="panel-block" onClick={() => read(entity, item.id)}>{item.name}</a>)
+            if (entity == 'workorder')
+                items.push(<a className="panel-block" onClick={() => read(entity, item.id)}>Work Order #{item.id}</a>)
+            else
+                items.push(<a className="panel-block" onClick={() => read(entity, item.id)}>{item.name}</a>)
         })
 
         console.log(entity)
