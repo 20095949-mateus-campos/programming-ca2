@@ -46,8 +46,13 @@ def create(entity, **kwargs):
         print(post[k])
         print(vars(row))
         if k in row.__annotations__:
-            if type(dict(row.metadata.tables['_'.join([str.lower(entity)[:4], str.lower(entity)[4:]])].c)[k].type) is DateTime:
-                post[k] = datetime.strptime(post[k], '%Y-%m-%d').date()
+            try:
+                if type(dict(row.metadata.tables[str.lower(entity)].c)[k].type) is DateTime:
+                    post[k] = datetime.strptime(post[k], '%Y-%m-%d').date()
+            except Exception as e:
+                if type(e) is KeyError:
+                    if type(dict(row.metadata.tables['_'.join([str.lower(entity)[:4], str.lower(entity)[4:]])].c)[k].type) is DateTime:
+                        post[k] = datetime.strptime(post[k], '%Y-%m-%d').date()
             
             setattr(row, k, post[k])
 
