@@ -112,7 +112,11 @@ def read(entity, id):
 
     try:
         row = db.session.get_one(globals()[entity], id)
-        # return {'id': row.id, 'name': row.name}
+
+        if entity == 'Product':
+            row.__setattr__('material', db.session.execute(db.select(BOM).filter_by(product=row.id)).scalar_one().material)
+            row.__setattr__('process', db.session.execute(db.select(BOP).filter_by(product=row.id)).scalar_one().process)
+        
         return json.dumps({k: vars(row)[k] for k in vars(row) if k != '_sa_instance_state'})
     except Exception as e:
         if type(e) is TypeError:
