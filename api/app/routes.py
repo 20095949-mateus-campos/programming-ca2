@@ -80,7 +80,7 @@ def create(entity, **kwargs):
     # return {'test': 1}
 
 @app.get('/api/read/<entity>/<int:id>')
-def read(entity, id):
+def read(entity, id=0):
     entity = escape(entity)
     id = int(escape(id))
 
