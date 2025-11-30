@@ -18,12 +18,6 @@ export default function Read({entity, json, read, create}) {
                     <div className="panel-block">
                         <input className="input" type="text" placeholder="Search" />
                     </div>
-                    <p class="panel-tabs">
-                        <a class="is-active">All</a>
-                        <a>Jigs</a>
-                        <a>Fixtures</a>
-                        <a>Platforms</a>
-                    </p>
                     {items}
                     <div className="panel-block">
                         <button className="button is-link is-outlined is-fullwidth" onClick={() => create(entity)}>
