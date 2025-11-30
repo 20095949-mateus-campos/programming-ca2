@@ -33,11 +33,11 @@ def create(entity, **kwargs):
 
     # print(request.headers)
     
-    # print(kwargs)
+    # print(post)
 
     entity = solve_entity(entity)
 
-    # print(*list(kwargs.values()))
+    # print(*list(post.values()))
 
     row = globals()[entity]()
 
@@ -90,7 +90,6 @@ def read(entity, id):
         try:
             rows = db.session.query(globals()[entity]).all()
 
-            # return [{'id': row.id, 'name': row.name} for row in rows]
             return [json.dumps({k: vars(row)[k] for k in vars(row) if k != '_sa_instance_state'}) for row in rows]
         except Exception as e:
             if type(e) is TypeError:
