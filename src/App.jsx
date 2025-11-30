@@ -66,7 +66,7 @@ export default function App() {
     console.log(entity.toUpperCase())
 
     if (post == null)
-      setPage(<Create entity={entity} create={create} read={read} props={props}/>)
+      setPage(<Create entity={entity} create={create} read={read} props={ModelProps[entity.toUpperCase()]}/>)
     else {
       console.log('post')
       console.log(post)
