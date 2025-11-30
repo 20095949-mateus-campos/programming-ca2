@@ -28,9 +28,9 @@ export default function Navbar({home, read}) {
 
 
     
-<div class="navbar-brand">
-    <a class="navbar-item" onClick={home}>Home</a>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenuHeroA" onClick={toggle}>
+<div className="navbar-brand">
+    <a className="navbar-item" onClick={home}>Home</a>
+    <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenuHeroA" onClick={toggle}>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
