@@ -1,3 +1,7 @@
+# This file was originally sourced from Miguel Grinberg's blog.
+# Link: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database.
+# Changes have been commented where applicable.
+
 from flask import Flask
 from .config import Config
 from flask_sqlalchemy import SQLAlchemy
