@@ -1,7 +1,8 @@
 # This file was originally sourced from Miguel Grinberg's blog.
 # Link: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database.
-# Flask-SQLAlchemy Docs referenced: https://flask-sqlalchemy.readthedocs.io/en/stable/quickstart/#define-models.
 # Changes have been commented where applicable.
+#
+# Flask-SQLAlchemy Docs referenced: https://flask-sqlalchemy.readthedocs.io/en/stable/quickstart/#define-models.
 
 from datetime import datetime  # imported module to handle date datatype
 import sqlalchemy as sa

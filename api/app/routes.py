@@ -1,6 +1,5 @@
 # Flask Docs referenced: https://flask.palletsprojects.com/en/stable/quickstart/#routing.
 # Flask-SQLAlchemy Docs referenced: https://flask-sqlalchemy.readthedocs.io/en/stable/quickstart/#query-the-data.
-# Changes have been commented where applicable.
 
 from app import app, db
 from .models import *

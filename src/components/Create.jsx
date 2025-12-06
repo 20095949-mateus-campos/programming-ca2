@@ -1,50 +1,16 @@
-import { useEffect, useEffectEvent, useState } from "react"
+// Bulma Docs referenced: https://bulma.io/documentation/components/panel/.
+
 import Dropdown from "./Dropdown"
 
+// Create component renders form for model creation
 export default function Create({entity, create, read, props}) {
     let items = []
-    const [clientState, setClientState] = useState([])
-    const [productState, setProductState] = useState([])
-    // let dep = null
-    const [dep, setDep] = useState("")
 
-    // async function fetchData(table) {
-    //     await fetch(`/api/read/${table}/0`, {method: "GET"})
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             switch (table) {
-    //                 case 'client':
-    //                     setClientState(data)
-    //                     break
-    //                 case 'product':
-    //                     setProductState(data)
-    //                     break
-    //             }
-    //         })
-    // }
-
-    // let manager = {
-    //     client: clientState,
-    //     product: productState
-    // }
-
-    // useEffect(() => {
-    //     fetchData(dep)
-    // }, [])
-
-    // console.log(clientState)
-    // console.log(productState)
-
-
+    // set a different type of element for each type of form field
     props.forEach(item => {
-        // console.log(item.name + ' ' + item.id)
-
-
         let type
+
         switch (item) {
-            case "blueprint":
-                type = "text"
-                break
             case "email":
                 type = "email"
                 break
@@ -63,109 +29,36 @@ export default function Create({entity, create, read, props}) {
                 break
         }
 
-        let tag = <input className="input" type={type} name={item}
-                            placeholder={item} />
+        // default element is input
+        let tag = <input className="input" type={type} name={item} placeholder={item} />
 
+        // make element a Dropdown if needed
         if (item == "client" || item == "tool" || item == "product" || item == "material" || item == "process") {
-            // setDep(item)
-
-            // tag = <select name={item}>
-            //     {manager[item] ? manager[item].map(process => {
-            //         return <option value={JSON.parse(process).id}>{JSON.parse(process).name}</option>
-            //     }) : "Loading..."}
-            //     </select>
-
-            tag = <Dropdown table={item}/>
+            tag = <Dropdown table={item} />
         }
 
+        // male element a textarea if needed
         if (item == "description") {
             tag = <textarea name={item}></textarea>
         }
 
-        // if (item == 'tool') {
-
-        //         dep = "tool"
-
-        //         response.forEach(process => {
-        //             processes.push(<option value={JSON.parse(process).id}>{JSON.parse(process).name}</option>)
-        //         })
-
-        //         tag = <select name={item}>
-        //         {response ?
-        //         processes : "Loading..."}
-        //     </select>
-
-        // }
-
-        
-
-        items.push(<div className="panel-block">
-                        <label className="label" for={item}>{item}:</label>
-                        {tag}
-                    </div>
-                )
+        // add element to form
+        items.push(
+            <div className="panel-block">
+                <label className="label" for={item}>{item}:</label>
+                {tag}
+            </div>
+        )
 
     })
 
-    
-    // const [dep, setDep] = useState(null)
-
-    
-    
-    
-
-    
-
-    // switch (entity) {
-    //         case "product":
-    //             // setDep("tool")
-    //             dep = "process"
-
-    //             response.forEach(process => {
-    //                 processes.push(<option>{JSON.parse(process).name}</option>)
-    //             })
-
-    //             items.push(<div className="panel-block">
-    //                     <label className="label">Process:</label>
-    //                     <select>
-    //             {response ?
-    //             processes : "Loading..."}
-    //         </select>
-    //                 </div>)
-    //             break
-    //         case "process":
-    //             // setDep("tool")
-    //             dep = "tool"
-
-    //             response.forEach(process => {
-    //                 processes.push(<option name="tool">{JSON.parse(process).name}</option>)
-    //             })
-
-    //             items.push(<div className="panel-block">
-    //                     <label className="label">Tool:</label>
-    //                     <select>
-    //             {response ?
-    //             processes : "Loading..."}
-    //         </select>
-    //                 </div>)
-    //             break
-    //     }
-
+    // return form
     return (
         <>
             <form action={(formData) => {
-
-                // let formData = new FormData(e.target)
-
-                // console.log(formData.get('name'))
-
-                // for (const key of formData.keys()) {
-                //     console.log('key');
-                //     console.log(key);
-                //     }
-
                 let json = {}
 
+                // build JSON object from formData
                 props.forEach(item => {
                     if (item == 'tool')
                         json[item] = {Use: formData.get(item)}
@@ -176,23 +69,21 @@ export default function Create({entity, create, read, props}) {
                     else
                         json[item] = formData.get(item)
                 })
-
-                console.log(json)
                 
+                // create model with JSON object
                 create(entity, json)}}>
                 
+                {/* render panel with form fields and buttons */}
                 <nav className="panel">
                     <p className="panel-heading">{entity}</p>
                     {items}
                     <div className="panel-block">
-                    <button id="button-update" className="button is-link is-outlined is-fullwidth" type="submit">
-                        Save
-                    </button></div>
+                        <button id="button-update" className="button is-link is-outlined is-fullwidth" type="submit">Save</button>
+                    </div>
                     <div className="panel-block">
-                    <button type="button" id="button-delete" className="button is-link is-outlined is-fullwidth"
-                        onClick={() => read(entity)}>
-                        Cancel
-                    </button></div>
+                        <button type="button" id="button-delete" className="button is-link is-outlined is-fullwidth"
+                        onClick={() => read(entity)}>Cancel</button>
+                    </div>
                 </nav>
             </form>
         </>
