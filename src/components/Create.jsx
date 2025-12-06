@@ -7,7 +7,7 @@ export default function Create({entity, create, read, props}) {
     let items = []
 
     // set a different type of element for each type of form field
-    props.forEach(item => {
+    props.forEach((item, count) => {
         let type
 
         switch (item) {
@@ -44,7 +44,7 @@ export default function Create({entity, create, read, props}) {
 
         // add element to form
         items.push(
-            <div className="panel-block">
+            <div key={count} className="panel-block">
                 <label className="label" for={item}>{item}:</label>
                 {tag}
             </div>

@@ -7,22 +7,22 @@ export default function Home({read}) {
             <nav className="panel">
                 <p className="panel-heading">ERP</p>
                 <div className="panel-block">
-                    <button className="button is-link is-outlined is-fullwidth" onClick={() => read("product")}>Products</button>
+                    <button key={0} className="button is-link is-outlined is-fullwidth" onClick={() => read("product")}>Products</button>
                 </div>
                 <div className="panel-block">
-                    <button className="button is-link is-outlined is-fullwidth" onClick={() => read("workorder")}>Work Orders</button>
+                    <button key={1} className="button is-link is-outlined is-fullwidth" onClick={() => read("workorder")}>Work Orders</button>
                 </div>
                 <div className="panel-block">
-                    <button className="button is-link is-outlined is-fullwidth" onClick={() => read("client")}>Clients</button>
+                    <button key={2} className="button is-link is-outlined is-fullwidth" onClick={() => read("client")}>Clients</button>
                 </div>
                 <div className="panel-block">
-                    <button className="button is-link is-outlined is-fullwidth" onClick={() => read("process")}>Processes</button>
+                    <button key={3} className="button is-link is-outlined is-fullwidth" onClick={() => read("process")}>Processes</button>
                 </div>
                 <div className="panel-block">
-                    <button className="button is-link is-outlined is-fullwidth" onClick={() => read("material")}>Materials</button>
+                    <button key={4} className="button is-link is-outlined is-fullwidth" onClick={() => read("material")}>Materials</button>
                 </div>
                 <div className="panel-block">
-                    <button className="button is-link is-outlined is-fullwidth" onClick={() => read("tool")}>Tools</button>
+                    <button key={5} className="button is-link is-outlined is-fullwidth" onClick={() => read("tool")}>Tools</button>
                 </div>
             </nav>
         </>

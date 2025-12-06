@@ -22,7 +22,7 @@ export default function Navbar({home, read}) {
                 <nav className="navbar">
                     {/* collapsible hamburger */}
                     <div className="navbar-brand">
-                        <a className="navbar-item" onClick={home}>Home</a>
+                        <a key={0} className="navbar-item" onClick={home}>Home</a>
                         <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenuHeroA" onClick={toggle}>
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
@@ -35,12 +35,12 @@ export default function Navbar({home, read}) {
                     <div className="container">
                         <div id="navbarMenuHeroA" className="navbar-menu">
                             <div className="navbar-end">
-                                <a className="navbar-item" onClick={() => read("product")}>Products</a>
-                                <a className="navbar-item" onClick={() => read("workorder")}>Work Orders</a>
-                                <a className="navbar-item" onClick={() => read("client")}>Clients</a>
-                                <a className="navbar-item" onClick={() => read("process")}>Processes</a>
-                                <a className="navbar-item" onClick={() => read("material")}>Materials</a>
-                                <a className="navbar-item" onClick={() => read("tool")}>Tools</a>
+                                <a key={1} className="navbar-item" onClick={() => read("product")}>Products</a>
+                                <a key={2} className="navbar-item" onClick={() => read("workorder")}>Work Orders</a>
+                                <a key={3} className="navbar-item" onClick={() => read("client")}>Clients</a>
+                                <a key={4} className="navbar-item" onClick={() => read("process")}>Processes</a>
+                                <a key={5} className="navbar-item" onClick={() => read("material")}>Materials</a>
+                                <a key={6} className="navbar-item" onClick={() => read("tool")}>Tools</a>
                             </div>
                         </div>
                     </div>

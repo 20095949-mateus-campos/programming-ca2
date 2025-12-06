@@ -18,7 +18,7 @@ export default function Field({type, table, id, read}) {
         if (["client", "tool", "product", "material", "process"].includes(table)) {
         await fetch(`/api/read/${table}/${id}`, {method: "GET"})
             .then(res => res.json())
-            .then(data => {setResponse(data); console.log(data)})  // update component's state; triggers useEffect
+            .then(data => setResponse(data))  // update component's state; triggers useEffect
         }
     }
 
@@ -26,13 +26,13 @@ export default function Field({type, table, id, read}) {
     
     // return different elements depending on field type
     if (type == 'id')
-        element = <a onClick={() => read(table, response.id)}>
+        element = <a key={response.id} onClick={() => read(table, response.id)}>
                     <p>{response.name}</p>
                 </a>
     else if (type == 'input')
-        element = <input disabled className="input is-large" name={table} placeholder={table} defaultValue={id}/>
+        element = <input key={response.id} disabled className="input is-large" name={table} placeholder={table} defaultValue={id}/>
     else if (type == 'img')
-        element = <a onClick={() => open(id)}>
+        element = <a key={response.id} onClick={() => open(id)}>
             <img src={id}></img>
             </a>
 

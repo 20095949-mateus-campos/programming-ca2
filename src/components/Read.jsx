@@ -17,9 +17,9 @@ export default function Read({entity, json, read, create, update, delete_row, ho
             item = JSON.parse(item)
 
             if (entity == 'workorder')
-                items.push(<a className="panel-block" onClick={() => read(entity, item.id)}>Work Order #{item.id}</a>)
+                items.push(<a key={item.id} className="panel-block" onClick={() => read(entity, item.id)}>Work Order #{item.id}</a>)
             else
-                items.push(<a className="panel-block" onClick={() => read(entity, item.id)}>{item.name}</a>)
+                items.push(<a key={item.id} className="panel-block" onClick={() => read(entity, item.id)}>{item.name}</a>)
         })
 
         // capitalize and pluralize list heading
@@ -61,7 +61,7 @@ export default function Read({entity, json, read, create, update, delete_row, ho
         let items = []
 
         // render one field for each model attribute
-        Object.keys(json).forEach(item => {
+        Object.keys(json).forEach((item, count) => {
             // default field is type input
             let tag = <Field type={'input'} table={item} id={json[item]} read={read}/>
 
@@ -78,9 +78,9 @@ export default function Read({entity, json, read, create, update, delete_row, ho
             // add all fields to form, except ID
             if (item != 'id') {
                 items.push(
-                    <div className="field">
+                    <div key={count} className="field">
                         <div className="control">
-                            <label className="label" for={item}>{item}:</label>
+                            <label className="label" htmlFor={item}>{item}:</label>
                             {tag}
                         </div>
                     </div>
