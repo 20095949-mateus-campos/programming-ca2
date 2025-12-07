@@ -1,95 +1,120 @@
+# Flask Docs referenced: https://flask.palletsprojects.com/en/stable/testing/
+
 import json
 from app import db
 from app.models import *
+from datetime import datetime
 
+# Only entities Tool, Material and Client are tested here.
+# However, extending to the other entities should be trivial (only time consuming).
+
+# test function for CRUD operations for the Tool entity
 def test_crud_tool(clnt, ctxt):
+    old_model = {'name': 'Test Tool'}
+    new_model = {'name': 'New Test Tool'}
+
     with ctxt:
+        # Read all
         response = json.loads(clnt.get('/api/read/tool/0').text)
         assert len(db.session.query(Tool).all()) == 0
         assert response == []
 
-        response = json.loads(clnt.post('/api/create/tool', json={'name': 'Test Tool'}).text)
+        # Create one
+        response = json.loads(clnt.post('/api/create/tool', json=old_model).text)
         assert len(db.session.query(Tool).all()) == 1
-        assert db.session.get_one(Tool, 1).name == 'Test Tool'
-        assert response['name'] == 'Test Tool'
+        model = db.session.get_one(Tool, 1)
+        assert model.name == old_model['name']
+        assert response['name'] == old_model['name']
 
-        response = json.loads(json.loads(clnt.get('/api/read/tool/0').text)[0])
-        assert response['name'] == 'Test Tool'
-
+        # Read one
         response = json.loads(clnt.get('/api/read/tool/1').text)
-        assert response['name'] == 'Test Tool'
+        assert response['name'] == old_model['name']
 
-        response = json.loads(clnt.patch('/api/update/tool/1', json={'name': 'New Test Tool'}).text)
-        assert db.session.get_one(Tool, 1).name == 'New Test Tool'
-        assert response['name'] == 'New Test Tool'
+        # Update one
+        response = json.loads(clnt.patch('/api/update/tool/1', json=new_model).text)
+        model = db.session.get_one(Tool, 1)
+        assert model.name == new_model['name']
+        assert response['name'] == new_model['name']
 
+        # Delete one
         response = json.loads(clnt.delete('/api/delete/tool/1').text)
         assert len(db.session.query(Tool).all()) == 0
 
+# test function for CRUD operations for the Material entity
 def test_crud_material(clnt, ctxt):
+    old_model = {'name': 'Test Material'}
+    new_model = {'name': 'New Test Material'}
+
     with ctxt:
+        # Read all
         response = json.loads(clnt.get('/api/read/material/0').text)
         assert len(db.session.query(Material).all()) == 0
         assert response == []
 
-        response = json.loads(clnt.post('/api/create/material', json={'name': 'Test Material'}).text)
+        # Create one
+        response = json.loads(clnt.post('/api/create/material', json=old_model).text)
         assert len(db.session.query(Material).all()) == 1
-        assert db.session.get_one(Material, 1).name == 'Test Material'
-        assert response['name'] == 'Test Material'
+        model = db.session.get_one(Material, 1)
+        assert model.name == old_model['name']
+        assert response['name'] == old_model['name']
 
-        response = json.loads(json.loads(clnt.get('/api/read/material/0').text)[0])
-        assert response['name'] == 'Test Material'
-
+        # Read one
         response = json.loads(clnt.get('/api/read/material/1').text)
-        assert response['name'] == 'Test Material'
+        assert response['name'] == old_model['name']
 
-        response = json.loads(clnt.patch('/api/update/material/1', json={'name': 'New Test Material'}).text)
-        assert db.session.get_one(Material, 1).name == 'New Test Material'
-        assert response['name'] == 'New Test Material'
+        # Update one
+        response = json.loads(clnt.patch('/api/update/material/1', json=new_model).text)
+        model = db.session.get_one(Material, 1)
+        assert model.name == new_model['name']
+        assert response['name'] == new_model['name']
 
+        # Delete one
         response = json.loads(clnt.delete('/api/delete/material/1').text)
         assert len(db.session.query(Material).all()) == 0
 
+# test function for CRUD operations for the Client entity
 def test_crud_client(clnt, ctxt):
+    old_model = {'name': 'Test Client', 'email': 'client@email.com', 'phone': '+353 01 234 5678', 'address': '1 Main St, City Center, Dublin, IE'}
+    new_model = {'name': 'New Test Client', 'email': 'new_client@email.com', 'phone': '+353 01 432 8765', 'address': '2 Back St, City West, Dublin, IE'}
+
     with ctxt:
+        # Read all
         response = json.loads(clnt.get('/api/read/client/0').text)
         assert len(db.session.query(Client).all()) == 0
         assert response == []
 
-        response = json.loads(clnt.post('/api/create/client', json={'name': 'Test Client', 'email': 'client@email.com', 'phone': '+353 01 234 5678', 'address': '1 Main St, City Center, Dublin, IE'}).text)
+        # Create one
+        response = json.loads(clnt.post('/api/create/client', json=old_model).text)
         assert len(db.session.query(Client).all()) == 1
-        client = db.session.get_one(Client, 1)
-        assert client.name == 'Test Client'
-        assert client.email == 'client@email.com'
-        assert client.phone == '+353 01 234 5678'
-        assert client.address == '1 Main St, City Center, Dublin, IE'
-        assert response['name'] == 'Test Client'
-        assert response['email'] == 'client@email.com'
-        assert response['phone'] == '+353 01 234 5678'
-        assert response['address'] == '1 Main St, City Center, Dublin, IE'
+        model = db.session.get_one(Client, 1)
+        assert model.name == old_model['name']
+        assert model.email == old_model['email']
+        assert model.phone == old_model['phone']
+        assert model.address == old_model['address']
+        assert response['name'] == old_model['name']
+        assert response['email'] == old_model['email']
+        assert response['phone'] == old_model['phone']
+        assert response['address'] == old_model['address']
 
-        response = json.loads(json.loads(clnt.get('/api/read/client/0').text)[0])
-        assert response['name'] == 'Test Client'
-        assert response['email'] == 'client@email.com'
-        assert response['phone'] == '+353 01 234 5678'
-        assert response['address'] == '1 Main St, City Center, Dublin, IE'
-
+        # Read one
         response = json.loads(clnt.get('/api/read/client/1').text)
-        assert response['name'] == 'Test Client'
-        assert response['email'] == 'client@email.com'
-        assert response['phone'] == '+353 01 234 5678'
-        assert response['address'] == '1 Main St, City Center, Dublin, IE'
+        assert response['name'] == old_model['name']
+        assert response['email'] == old_model['email']
+        assert response['phone'] == old_model['phone']
+        assert response['address'] == old_model['address']
 
-        response = json.loads(clnt.patch('/api/update/client/1', json={'name': 'New Test Client', 'email': 'new_client@email.com', 'phone': '+353 01 432 8765', 'address': '2 Back St, City West, Dublin, IE'}).text)
-        client = db.session.get_one(Client, 1)
-        assert client.name == 'New Test Client'
-        assert client.email == 'new_client@email.com'
-        assert client.phone == '+353 01 432 8765'
-        assert client.address == '2 Back St, City West, Dublin, IE'
-        assert response['name'] == 'New Test Client'
-        assert response['email'] == 'new_client@email.com'
-        assert response['phone'] == '+353 01 432 8765'
-        assert response['address'] == '2 Back St, City West, Dublin, IE'
+        # Update one
+        response = json.loads(clnt.patch('/api/update/client/1', json=new_model).text)
+        model = db.session.get_one(Client, 1)
+        assert model.name == new_model['name']
+        assert model.email == new_model['email']
+        assert model.phone == new_model['phone']
+        assert model.address == new_model['address']
+        assert response['name'] == new_model['name']
+        assert response['email'] == new_model['email']
+        assert response['phone'] == new_model['phone']
+        assert response['address'] == new_model['address']
 
+        # Delete one
         response = json.loads(clnt.delete('/api/delete/client/1').text)
         assert len(db.session.query(Client).all()) == 0
