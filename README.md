@@ -81,7 +81,7 @@ Pytest was used to test CRUD operations. The Image below shows the coverage perc
 | :-: |
 | *Test coverage* |
 
-Full report can be accessed [here](http://htmlpreview.github.io/?).
+Full report can be accessed [here](http://htmlpreview.github.io/?https://github.com/20095949-mateus-campos/programming-ca2/blob/main/api/htmlcov/index.html).
 
 ## Part 5: Technology Stack and External Resources
 
