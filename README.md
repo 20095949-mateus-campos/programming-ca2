@@ -22,6 +22,57 @@ This repository contains an "Industrial ERP Information System" Flask + React we
 
 ## Part 3: Proof of Concept
 
+Following the plan established in the previous section, a prototype was developed for the manufacturing module of the ERP system under consideration.
+
+The below is a breakdown of the project’s file structure:
+
+```
+root
+├── api
+│   ├── app
+│   │   ├── app.db
+│   │   ├── app.py
+│   │   ├── config.py
+│   │   ├── __init__.py
+│   │   ├── models.py
+│   │   ├── routes.py
+│   │   └── tests
+│   │       ├── conftest.py
+│   │       ├── crud_test.py
+│   │       └── __init__.py
+│   ├── htmlcov
+│   ├── migrations
+│   └── requirements.txt
+├── index.html
+├── package.json
+├── README.md
+├── src
+│   ├── App.css
+│   ├── App.jsx
+│   ├── components
+│   │   ├── Create.jsx
+│   │   ├── Dropdown.jsx
+│   │   ├── Field.jsx
+│   │   ├── Home.jsx
+│   │   ├── Navbar.jsx
+│   │   └── Read.jsx
+│   └── main.jsx
+└── vite.config.js
+```
+The following are some screenshots of the application in use showcasing CRUD operations for the Product entity (other entities are analogous):
+
+| ![home.png](screenshots/home.png) | ![read_all.png](screenshots/read_all.png) |
+| :-: | :-: |
+| *Home view* | *Read products* |  
+
+| ![create.png](screenshots/create.png) | ![read.png](screenshots/read.png) |
+| :-: | :-: |
+| *Create product* | *Read product* |  
+
+| ![update.png](screenshots/update.png) | ![delete.png](screenshots/delete.png) |
+| :-: | :-: |
+| *Update product* | *Delete products* |  
+
 ## Part 4: Testing
 
 ## Part 5: Technology Stack and External Resources
