@@ -4,9 +4,12 @@
 from app import app, db
 from .models import *
 from markupsafe import escape
-from flask import request
+from flask import request, Blueprint
 import json
 from sqlalchemy.sql.sqltypes import DateTime
+
+# creates blueprint for app's routes
+blueprint = Blueprint('blueprint', __name__)
 
 # this function capitalizes the entity name following:
 #   'bom' -> 'BOM'
@@ -23,7 +26,7 @@ def solve_entity(entity):
 
 # this function handles POST requets at the specified endpoint
 # database CREATE operation (from CRUD)
-@app.post('/api/create/<entity>')
+@blueprint.post('/api/create/<entity>')
 def create(entity, **kwargs):
     entity = escape(entity)
     post = request.get_json(force=True)  # force=True to ignore MIME type
@@ -79,7 +82,7 @@ def create(entity, **kwargs):
 
 # this function handles GET requets at the specified endpoint
 # database READ operation (from CRUD)
-@app.get('/api/read/<entity>/<int:id>')
+@blueprint.get('/api/read/<entity>/<int:id>')
 def read(entity, id=0):
     entity = escape(entity)
     id = int(escape(id))  # ID of model to be read
@@ -145,7 +148,7 @@ def read(entity, id=0):
 
 # this function handles PATCH requets at the specified endpoint
 # database UPDATE operation (from CRUD)
-@app.patch('/api/update/<entity>/<int:id>')
+@blueprint.patch('/api/update/<entity>/<int:id>')
 def update(entity, id):
     entity = escape(entity)
     id = int(escape(id))  # ID of model to be updated
@@ -166,7 +169,7 @@ def update(entity, id):
 
 # this function handles DELETE requets at the specified endpoint
 # database DELETE operation (from CRUD)
-@app.delete('/api/delete/<entity>/<int:id>')
+@blueprint.delete('/api/delete/<entity>/<int:id>')
 def delete(entity, id):
     entity = escape(entity)
     id = int(escape(id))  # ID of model to be deleted
@@ -180,3 +183,5 @@ def delete(entity, id):
 
     # return list of models
     return read(entity)
+
+app.register_blueprint(blueprint)
