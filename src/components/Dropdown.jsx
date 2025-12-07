@@ -25,7 +25,7 @@ export default function Dropdown({table}) {
         <>
             <select name={table}>
                 {response ? response.map(field => {
-                    return <option key={JSON.parse(field).id} value={JSON.parse(field).id}>{JSON.parse(field).name}</option>
+                    return <option key={field.id} value={field.id}>{field.name}</option>
                 }) : "Loading..."}
             </select>
         </>

@@ -14,8 +14,6 @@ export default function Read({entity, json, read, create, update, delete_row, ho
 
         // render a link element for each model in list
         json.forEach(item => {
-            item = JSON.parse(item)
-
             if (entity == 'workorder')
                 items.push(<a key={item.id} className="panel-block" onClick={() => read(entity, item.id)}>Work Order #{item.id}</a>)
             else
