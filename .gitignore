@@ -26,6 +26,9 @@ dist-ssr
 # Virtual environments
 .venv
 
+# compiled bytecode
 __pycache__
+.pytest_cache
 
+# database binary file
 app.db
