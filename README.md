@@ -75,6 +75,14 @@ The following are some screenshots of the application in use showcasing CRUD ope
 
 ## Part 4: Testing
 
+Pytest was used to test CRUD operations. The Image below shows the coverage percentage as per the Coverage Python library:
+
+| ![coverage.png](screenshots/coverage.png) |
+| :-: |
+| *Test coverage* |
+
+Full report can be accessed [here](http://htmlpreview.github.io/?).
+
 ## Part 5: Technology Stack and External Resources
 
 ## Part 6: References
