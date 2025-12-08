@@ -130,7 +130,7 @@ cd ..
 ```
 13. Install Nginx:
 ```
-$ sudo apt-get install nginx
+$ sudo apt-get install nginx -y
 ```
 14. Set the Nginx configuration files:
 ```
