@@ -238,7 +238,137 @@ Below is a table listing the technologies and the external resources used in thi
 
 ## Part 6: References
 
-## Part 7: Copyright Disclaimer
+Below is the list of references used in this assignment:
+
+- **[Python Docs](https://docs.python.org/3.10/)**
+    - [5. Data Structures](https://docs.python.org/3.10/tutorial/datastructures.html)
+    - [Built-in Exceptions](https://docs.python.org/3.10/library/exceptions.html)
+    - [venv — Creation of virtual environments](https://docs.python.org/3.10/library/venv.html)
+    - [5. The import system](https://docs.python.org/3.10/reference/import.html)
+    - [datetime — Basic date and time types](https://docs.python.org/3.10/library/datetime.html)
+    - [9. Classes](https://docs.python.org/3.10/tutorial/classes.html)
+    - [8. Errors and Exceptions](https://docs.python.org/3.10/tutorial/errors.html)
+    - [json — JSON encoder and decoder](https://docs.python.org/3.10/library/json.html)
+    - [http — HTTP modules](https://docs.python.org/3.10/library/http.html)
+    - [http.client — HTTP protocol client](https://docs.python.org/3.10/library/http.client.html)
+    - [urllib.request — Extensible library for opening URLs](https://docs.python.org/3.10/library/urllib.request.html)
+- **[Flask Docs](https://flask.palletsprojects.com/en/stable/)**
+    - [Quickstart](https://flask.palletsprojects.com/en/stable/quickstart/)
+    - [API](https://flask.palletsprojects.com/en/stable/api/)
+    - [Handling Application Errors](https://flask.palletsprojects.com/en/stable/errorhandling/)
+    - [Using SQLite 3 with Flask](https://flask.palletsprojects.com/en/stable/patterns/sqlite3/)
+    - [Testing Flask Applications](https://flask.palletsprojects.com/en/stable/testing/)
+    - [Application Factories](https://flask.palletsprojects.com/en/stable/patterns/appfactories/)
+    - [Define and Access the Database](https://flask.palletsprojects.com/en/stable/tutorial/database/)
+    - [Configuration Handling](https://flask.palletsprojects.com/en/stable/config/)
+    - [Deploying](https://flask.palletsprojects.com/en/stable/deploying/)
+- **[React Docs](https://react.dev/)**
+    - [\<form\>](https://react.dev/reference/react-dom/components/form)
+    - ['use server'](https://react.dev/reference/rsc/use-server)
+    - [Server Components](https://react.dev/reference/rsc/server-components)
+    - [Passing Props to a Component](https://react.dev/learn/passing-props-to-a-component)
+    - [Catching rendering errors with an Error Boundary ](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
+    - [useEffect](https://react.dev/reference/react/useEffect)
+    - [Responding to Events](https://react.dev/learn/responding-to-events)
+    - [React calls Components and Hooks](https://react.dev/reference/rules/react-calls-components-and-hooks)
+    - [useState](https://react.dev/reference/react/useState)
+    - [\<input\>](https://react.dev/reference/react-dom/components/input)
+    - [Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state)
+    - [useMemo](https://react.dev/reference/react/useMemo)
+    - [useReducer](https://react.dev/reference/react/useReducer)
+    - [You Might Not Need an Effect](https://react.dev/learn/you-might-not-need-an-effect)
+    - [Rendering Lists](https://react.dev/learn/rendering-lists)
+- **[SQLAlchemy Docs](https://docs.sqlalchemy.org/en/20/)**
+    - [ORM Mapped Class Configuration](https://docs.sqlalchemy.org/en/20/orm/mapper_config.html)
+    - [Class Mapping API](https://docs.sqlalchemy.org/en/20/orm/mapping_api.html)
+    - [Defining Constraints and Indexes](https://docs.sqlalchemy.org/en/20/core/constraints.html)
+    - [Column INSERT/UPDATE Defaults](https://docs.sqlalchemy.org/en/20/core/defaults.html)
+    - [Data Manipulation with the ORM](https://docs.sqlalchemy.org/en/20/tutorial/orm_data_manipulation.html)
+    - [Describing Databases with MetaData](https://docs.sqlalchemy.org/en/20/core/metadata.html)
+- **[Flask-SQLAlchemy Docs](https://flask-sqlalchemy.readthedocs.io/en/stable/)**
+    - [Quick Start](https://flask-sqlalchemy.readthedocs.io/en/stable/quickstart/)
+    - [API](https://flask-sqlalchemy.readthedocs.io/en/stable/api/)
+    - [Models and Tables](https://flask-sqlalchemy.readthedocs.io/en/stable/models/)
+    - [Advanced Customization](https://flask-sqlalchemy.readthedocs.io/en/stable/customizing/)
+    - [Modifying and Querying Data](https://flask-sqlalchemy.readthedocs.io/en/stable/queries/)
+    - [Flask Application Context](https://flask-sqlalchemy.readthedocs.io/en/stable/contexts/)
+    - [Configuration](https://flask-sqlalchemy.readthedocs.io/en/stable/config/)
+- **[Flask-Migrate Docs](https://flask-migrate.readthedocs.io/en/latest/)**
+- **[Nginx Docs](https://nginx.org/en/docs/index.html)**
+    - [Beginner’s Guide](https://nginx.org/en/docs/beginners_guide.html)
+    - [Configuring HTTPS servers](https://nginx.org/en/docs/http/configuring_https_servers.html)
+- **[AWS Docs](https://docs.aws.amazon.com/)**
+    - [Key pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html)
+    - [Security groups](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html)
+    - [EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
+- **[MDN Web Docs](https://developer.mozilla.org/en-US/)**
+    - [Using the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+    - [Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
+    - [\<a\>: The Anchor element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a)
+    - [Array.isArray()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
+    - [FormData: get() method](https://developer.mozilla.org/en-US/docs/Web/API/FormData/get)
+    - [FormData: getAll() method](https://developer.mozilla.org/en-US/docs/Web/API/FormData/getAll)
+    - [FormData: values() method](https://developer.mozilla.org/en-US/docs/Web/API/FormData/values)
+    - [415 Unsupported Media Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/415)
+    - [Event: target property](https://developer.mozilla.org/en-US/docs/Web/API/Event/target)
+    - [FormData: keys() method](https://developer.mozilla.org/en-US/docs/Web/API/FormData/keys)
+    - [FormData: FormData() constructor](https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData)
+    - [Element: replaceWith() method](https://developer.mozilla.org/en-US/docs/Web/API/Element/replaceWith)
+    - [max-width](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/max-width)
+    - [Viewport concepts](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/CSSOM_view/Viewport_concepts)
+    - [\<input type="file"\>](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/file)
+    - [\<label\>: The Label element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label)
+    - [Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+    - [Element: classList property](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
+    - [TypeError: can't define property "x": "obj" is not extensible](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Cant_define_property_object_not_extensible)
+    - [export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
+    - [Media types (MIME types)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types)
+    - [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- **[W3Schools Online Web Tutorials](https://www.w3schools.com/)**
+    - [Python any() Function](https://www.w3schools.com/python/ref_func_any.asp)
+    - [React Submit Forms](https://www.w3schools.com/react/react_forms_submit.asp)
+    - [React Render HTML](https://www.w3schools.com/react/react_render.asp)
+    - [React Components](https://www.w3schools.com/react/react_components.asp)
+    - [CSS Horizontal Navigation Bar](https://www.w3schools.com/css/css_navbar_horizontal.asp)
+    - [Styling React Using CSS](https://www.w3schools.com/react/react_css.asp)
+    - [React Props](https://www.w3schools.com/react/react_props.asp)
+    - [Python map() Function](https://www.w3schools.com/python/ref_func_map.asp)
+    - [Python String join() Method](https://www.w3schools.com/python/ref_string_join.asp)
+    - [Python Requests Module](https://www.w3schools.com/python/module_requests.asp)
+    - [target Event Property](https://www.w3schools.com/jsref/event_target.asp)
+    - [Python filter() Function](https://www.w3schools.com/python/ref_func_filter.asp)
+    - [HTML \<button\> type Attribute](https://www.w3schools.com/tags/att_button_type.asp)
+    - [JavaScript Popup Boxes](https://www.w3schools.com/js/js_popup.asp)
+    - [HTML \<select\> Tag](https://www.w3schools.com/tags/tag_select.asp)
+    - [Python Try Except](https://www.w3schools.com/python/python_try_except.asp)
+    - [Python assert Keyword](https://www.w3schools.com/python/ref_keyword_assert.asp)
+    - [Python Sets](https://www.w3schools.com/python/python_sets.asp)
+- **[Mateus Campos' GitHub](https://github.com/mateusfonseca)**
+    - [mobileApp2_Accelerometer_Leaderboard](https://github.com/mateusfonseca/mobileApp2_Accelerometer_Leaderboard)
+    - [dorsetToDo](https://github.com/mateusfonseca/dorsetToDo)
+    - [dorsetMusicCollection](https://github.com/mateusfonseca/dorsetMusicCollection)
+- **[Miguel Grinberg's Blog](https://blog.miguelgrinberg.com/)**
+    - [Create a React + Flask Project in 2025](https://blog.miguelgrinberg.com/post/create-a-react-flask-project-in-2025)
+    - [The Flask Mega-Tutorial, Part IV: Database](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database)
+    - [The Flask Mega-Tutorial, Part VII: Error Handling](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-error-handling)
+    - [How to Deploy a React + Flask Project](https://blog.miguelgrinberg.com/post/how-to-deploy-a-react--flask-project)
+- **[Bulma Docs](https://bulma.io/documentation/)**
+    - [Panel](https://bulma.io/documentation/components/panel/)
+    - [Form controls](https://bulma.io/documentation/form/general/)
+    - [Navbar](https://bulma.io/documentation/components/navbar/)
+    - [Column options](https://bulma.io/documentation/columns/options/)
+    - [Hero](https://bulma.io/documentation/layout/hero/)
+    - [Input](https://bulma.io/documentation/form/input/)
+    - [How to install Bulma](https://bulma.io/documentation/start/installation/)
+    - [Overview of Bulma](https://bulma.io/documentation/start/overview/)
+- **[Pytest Docs](https://docs.pytest.org/en/stable/)**
+    - [How to write and report assertions in tests](https://docs.pytest.org/en/stable/how-to/assert.html)
+    - [Fixtures reference](https://docs.pytest.org/en/stable/reference/fixtures.html)
+    - [Get Started](https://docs.pytest.org/en/stable/getting-started.html)
+- **[Gunicorn Docs](https://docs.gunicorn.org/en/stable/)**
+- **[Coverage.py Docs](https://coverage.readthedocs.io/en/7.13.0/)**
+
+## Part 8: Copyright Disclaimer
 
 This project may feature content that is copyright protected. Please, keep in mind that this is a student's project and has no commercial purpose whatsoever. Having said that, if you are the owner of any content featured here and would like for it to be removed, please, contact me and I will do so promptly.
 
