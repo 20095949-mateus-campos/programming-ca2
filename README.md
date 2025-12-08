@@ -203,9 +203,9 @@ The following are some screenshots of the application in use showcasing CRUD ope
 | :-: | :-: |
 | *Update product* | *Delete products* |  
 
-## Part 4: Testing
+## Part 5: Testing
 
-Pytest was used to test CRUD operations. The Image below shows the coverage percentage as per the Coverage Python library:
+Pytest was used to test CRUD operations. The Image below shows the coverage percentage as per the Coverage.py Python library:
 
 | ![coverage.png](screenshots/coverage.png) |
 | :-: |
@@ -236,7 +236,7 @@ Below is a table listing the technologies and the external resources used in thi
 |Coverage.py 7.12.0|Gunicorn Docs|
 ||Coverage.py Docs|
 
-## Part 6: References
+## Part 7: References
 
 Below is the list of references used in this assignment:
 
