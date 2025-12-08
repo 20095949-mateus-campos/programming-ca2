@@ -91,7 +91,7 @@ $ git clone https://github.com/20095949-mateus-campos/programming-ca2.git
 ```
 $ python3 --version
 ```
-6. Install Node.js 24.11+
+6. Install Node.js 24.11+:
 ```
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && \
 source ~/.bashrc && \
