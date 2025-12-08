@@ -213,7 +213,28 @@ Pytest was used to test CRUD operations. The Image below shows the coverage perc
 
 Full report can be accessed [here](http://htmlpreview.github.io/?https://github.com/20095949-mateus-campos/programming-ca2/blob/main/api/htmlcov/index.html).
 
-## Part 5: Technology Stack and External Resources
+## Part 6: Technology Stack and External Resources
+
+Below is a table listing the technologies and the external resources used in this assignment:
+
+|Technology Stack|External Resources|
+| :-: | :-: |
+|Python 3.10.12|Python Docs|
+|Flask 3.1.2|Flask Docs|
+|React 19.2.0|React Docs|
+|Vite 7.2.4|SQLAlchemy Docs|
+|SQLite 3.32.2|Flask-SQLAlchemy Docs|
+|SQLAlchemy 2.0.44|Flask-Migrate Docs|
+|Flask-SQLAlchemy 3.1.1|Nginx Docs|
+|Nginx 1.24.0|AWS EC2 Docs|
+|AWS EC2 (t3.micro; ami-049442a6cf8319180)|MDN Docs|
+|Bulma CSS 0.7.2|W3 Schools|
+|Pytest 9.0.1|Mateus Campos’ personal GitHub Repository|
+|Flask-Migrate 4.1.0|Miguel Grinberg’s Blog|
+|Node.js 24.11.1|Bulma Docs|
+|Gunicorn 23.0.0|Pytest Docs|
+|Coverage.py 7.12.0|Gunicorn Docs|
+||Coverage.py Docs|
 
 ## Part 6: References
 
