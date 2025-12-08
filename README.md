@@ -109,7 +109,8 @@ npm build
 ```
 9. Change into the api subdirectory, create a virtual environment and activate it:
 ```
-$ python3 -m venv .venv && \
+$ cd api && \
+python3 -m venv .venv && \
 source .venv/bin/activate
 ```
 10. Install all the project's dependencies:
