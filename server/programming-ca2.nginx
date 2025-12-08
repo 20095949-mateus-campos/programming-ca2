@@ -1,6 +1,6 @@
 server {
     listen 80;
-    root /home/ubuntu/react-flask-app/build;
+    root /home/ubuntu/programming-ca2/dist;
     index index.html;
 
     location / {
