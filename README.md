@@ -16,7 +16,19 @@
 
 This repository contains an "Industrial ERP Information System" Flask + React web application developed for my Programming for Information Systems CA 2 at Dublin Business School - MSc in Information Systems with Computing, Year 1, Semester 1.
 
-## Part 1: Requirements and Setup
+## Part 1: Background
+
+The goal of this assignment was to implement a basic information system for a real small company. The main aspects of the implementation can be divided into three parts:
+
+1. Backend: to deliver a working set of server-side CRUD (Create, Read, Update and Delete) operations.
+2. Frontend: to deliver a working set of client-side API-based operations for data exchange between client and server.
+3. Deployment: to deploy the implemented application to a cloud environment.
+
+With the above background in mind, the information system developed for this project is an Enterprise Resource Planning (ERP). An ERP is a modular software that allows organizations to manage the different aspects of the business in an integrated environment. ERP modules often include finance, accounting, human resources (HR), supply chain, and customer relationship management (CRM), manufacturing, and more. ERP modules are, normally, connected to a centralized database, which enhances data integrity and consistency across devices.
+
+While traditional ERPs were deployed on premises, modern solutions are mostly cloud-based and implement the Software-as-a-Service (SaaS) delivery model. Cloud ERPs reduce maintenance costs by removing the need to manage on-premise infrastructure and allow for seamless feature updates, with little to no impact to business operations, by employing rolling release strategies, and Continuous Integration and Continuous Delivery (CI/CD) pipelines.
+
+For this project, the focus was on the manufacturing operations module of a, potentially, larger ERP system.
 
 ## Part 2: System Requirements and Design
 
