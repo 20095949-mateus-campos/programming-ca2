@@ -53,7 +53,7 @@ def create(entity, **kwargs):
             try:  # tries to convert date string to datetime object
                 if type(dict(row.metadata.tables[str.lower(entity)].c)[k].type) is DateTime:
                     post[k] = datetime.strptime(post[k], '%Y-%m-%d').date()
-            except Exception as e:  # exception needed, 'work_order' != form 'workorder'
+            except Exception as e:  # exception needed, 'work_order' != from 'workorder'
                 if type(e) is KeyError:
                     if type(dict(row.metadata.tables['_'.join([str.lower(entity)[:4], str.lower(entity)[4:]])].c)[k].type) is DateTime:
                         post[k] = datetime.strptime(post[k], '%Y-%m-%d').date()
