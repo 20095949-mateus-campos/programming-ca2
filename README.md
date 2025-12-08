@@ -151,6 +151,14 @@ sudo systemctl reload nginx
 ```
 At this stage, it should be possible to open the application at http://\<replace-with-aws-ec2-ipv4-address\> on a web browser. Note that since no SSL certificates were added to the server, the application cannot be reached over HTTPS. Manually changing the URL to HTTP may be required if the browser defaults to HTTPS (most do).
 
+Alternatively, for convenience, simply run the shell script below, which will execute all the commands above automatically:
+
+```
+$ git clone https://github.com/20095949-mateus-campos/programming-ca2.git && \
+cd programming-ca2 && \
+bash setup.sh
+```
+
 ## Part 4: Proof of Concept
 
 Following the plan established in the previous section, a prototype was developed for the manufacturing module of the ERP system under consideration.
