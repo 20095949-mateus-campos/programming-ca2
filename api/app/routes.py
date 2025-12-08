@@ -96,7 +96,7 @@ def read(entity, id=0):
 
             # returns list of models as JSON excluding reference to instance state (only attributes)
             return json.dumps([{k: vars(row)[k] for k in vars(row) if k != '_sa_instance_state'} for row in rows])
-        except Exception as e:  # exception needed, 'work_order' != form 'workorder'
+        except Exception as e:  # exception needed, 'work_order' != from 'workorder'
             if type(e) is TypeError:
                 json_dumps = []
                 json_dump = {}
