@@ -45,7 +45,7 @@ export default function Create({entity, create, read, props}) {
         // add element to form
         items.push(
             <div key={count} className="panel-block">
-                <label className="label" for={item}>{item}:</label>
+                <label className="label" htmlFor={item}>{item}:</label>
                 {tag}
             </div>
         )
