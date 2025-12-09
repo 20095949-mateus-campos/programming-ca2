@@ -73,8 +73,7 @@ def create(entity, **kwargs):
             create(relation, e_1=str.lower(entity), i_1=row.id, e_2=str.lower(k), i_2=id_2)  # recursive call with kwargs
 
     # returns model as JSON excluding reference to instance state (only attributes)
-    # return json.dumps({k: vars(row)[k] for k in vars(row) if k != '_sa_instance_state'})
-    return read(entity, row.id)
+    return read(str.lower(entity), row.id)
 
 # this function handles GET requets at the specified endpoint
 # database READ operation (from CRUD)
@@ -161,7 +160,7 @@ def update(entity, id):
     db.session.commit()
 
     # return model details
-    return read(entity, id)
+    return read(str.lower(entity), id)
 
 # this function handles DELETE requets at the specified endpoint
 # database DELETE operation (from CRUD)
@@ -178,6 +177,6 @@ def delete(entity, id):
     db.session.commit()
 
     # return list of models
-    return read(entity)
+    return read(str.lower(entity))
 
 app.register_blueprint(blueprint)
