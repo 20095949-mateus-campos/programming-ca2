@@ -33,6 +33,16 @@ def create(entity, **kwargs):
     #   i_i: entity 1's ID
     #   i_2: entity 2's ID
     if len(kwargs) != 0:
+        # delete any existing association of the current model
+        row = None
+        if entity == 'Use':
+            row = db.session.execute(db.select(globals()[entity]).filter_by(process=kwargs['i_1'])).one_or_none()
+        elif entity in ['BOM', 'BOP']:
+            row = db.session.execute(db.select(globals()[entity]).filter_by(product=kwargs['i_1'])).one_or_none()
+        if row:
+            db.session.delete(row[0])
+        
+        # create new association
         row = globals()[entity]()
         setattr(row, kwargs['e_1'], kwargs['i_1'])
         setattr(row, kwargs['e_2'], kwargs['i_2'])
@@ -154,7 +164,19 @@ def update(entity, id):
 
     # set updated attributes to JSON contents
     for k in req:
-        setattr(row, k, req[k])
+        if k not in row.__annotations__:  # make sure that content does not map to an attribute
+            relation = list(req[k].keys())[0]
+            id_2 = json.loads(read(k, req[k][relation]))['id']
+            create(relation, e_1=str.lower(entity), i_1=row.id, e_2=str.lower(k), i_2=id_2)  # recursive call with kwargs
+        else:
+            try:  # tries to convert date string to datetime object
+                if type(dict(row.metadata.tables[str.lower(entity)].c)[k].type) is DateTime:
+                    req[k] = datetime.strptime(req[k], '%Y-%m-%d').date()
+            except Exception as e:  # exception needed, 'work_order' != from 'workorder'
+                if type(e) is KeyError:
+                    if type(dict(row.metadata.tables['_'.join([str.lower(entity)[:4], str.lower(entity)[4:]])].c)[k].type) is DateTime:
+                        req[k] = datetime.strptime(req[k], '%Y-%m-%d').date()
+            setattr(row, k, req[k])
     
     # update to database
     db.session.commit()
