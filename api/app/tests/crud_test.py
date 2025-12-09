@@ -25,6 +25,11 @@ def test_crud_tool(clnt, ctxt):
         model = db.session.get_one(Tool, 1)
         assert model.name == old_model['name']
         assert response['name'] == old_model['name']
+        
+        # Read all
+        response = json.loads(clnt.get('/api/read/tool/0').text)
+        assert len(db.session.query(Tool).all()) == 1
+        assert response[0]['name'] == old_model['name']
 
         # Read one
         response = json.loads(clnt.get('/api/read/tool/1').text)
@@ -57,6 +62,11 @@ def test_crud_material(clnt, ctxt):
         model = db.session.get_one(Material, 1)
         assert model.name == old_model['name']
         assert response['name'] == old_model['name']
+
+        # Read all
+        response = json.loads(clnt.get('/api/read/material/0').text)
+        assert len(db.session.query(Material).all()) == 1
+        assert response[0]['name'] == old_model['name']
 
         # Read one
         response = json.loads(clnt.get('/api/read/material/1').text)
@@ -95,6 +105,14 @@ def test_crud_client(clnt, ctxt):
         assert response['email'] == old_model['email']
         assert response['phone'] == old_model['phone']
         assert response['address'] == old_model['address']
+
+        # Read all
+        response = json.loads(clnt.get('/api/read/client/0').text)
+        assert len(db.session.query(Client).all()) == 1
+        assert response[0]['name'] == old_model['name']
+        assert response[0]['email'] == old_model['email']
+        assert response[0]['phone'] == old_model['phone']
+        assert response[0]['address'] == old_model['address']
 
         # Read one
         response = json.loads(clnt.get('/api/read/client/1').text)
