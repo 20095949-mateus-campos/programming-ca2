@@ -19,6 +19,10 @@ def test_crud_tool(clnt, ctxt):
         assert len(db.session.query(Tool).all()) == 0
         assert response == []
 
+        # Read one when none
+        response = json.loads(clnt.get('/api/read/tool/1').text)
+        assert response == {}
+
         # Create one
         response = json.loads(clnt.post('/api/create/tool', json=old_model).text)
         assert len(db.session.query(Tool).all()) == 1
@@ -56,6 +60,10 @@ def test_crud_material(clnt, ctxt):
         assert len(db.session.query(Material).all()) == 0
         assert response == []
 
+        # Read one when none
+        response = json.loads(clnt.get('/api/read/material/1').text)
+        assert response == {}
+        
         # Create one
         response = json.loads(clnt.post('/api/create/material', json=old_model).text)
         assert len(db.session.query(Material).all()) == 1
@@ -93,6 +101,10 @@ def test_crud_client(clnt, ctxt):
         assert len(db.session.query(Client).all()) == 0
         assert response == []
 
+        # Read one when none
+        response = json.loads(clnt.get('/api/read/client/1').text)
+        assert response == {}
+        
         # Create one
         response = json.loads(clnt.post('/api/create/client', json=old_model).text)
         assert len(db.session.query(Client).all()) == 1
