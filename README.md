@@ -82,6 +82,16 @@ In order to replicate this project, follow the steps below:
         - Port 22 &rarr; SSH &rarr; 0.0.0.0/0.
         - Port 80 &rarr; HTTP &rarr; 0.0.0.0/0.
         - Port 443 &rarr; HTTPS &rarr; 0.0.0.0/0.
+    - add user data (optional):
+```
+git clone https://github.com/20095949-mateus-campos/programming-ca2.git && \
+cd programming-ca2 && \
+bash setup.sh
+```        
+If adding the optional user data above, the setup is complete and, at this stage, it should be possible to open the application at http://\<replace-with-aws-ec2-ipv4-address\> on a web browser. Note that since no SSL certificates were added to the server, the application cannot be reached over HTTPS. Manually changing the URL to HTTP may be required if the browser defaults to HTTPS (most do).
+
+If a manual setup is preferred, keep following the steps:
+
 3. Connect to the server over SSH.
 4. Clone this repository:
 ```
@@ -149,9 +159,9 @@ sudo systemctl daemon-reload && \
 sudo systemctl start programming-ca2 && \
 sudo systemctl reload nginx
 ```
-At this stage, it should be possible to open the application at http://\<replace-with-aws-ec2-ipv4-address\> on a web browser. Note that since no SSL certificates were added to the server, the application cannot be reached over HTTPS. Manually changing the URL to HTTP may be required if the browser defaults to HTTPS (most do).
+The application can now be opened at http://\<replace-with-aws-ec2-ipv4-address\> on a web browser (HTTP only; no SSL).
 
-Alternatively, for convenience, simply run the shell script below, which will execute all the commands above automatically:
+Alternatively, simply run the commands below, which will execute all the commands above automatically (same as user data):
 
 ```
 git clone https://github.com/20095949-mateus-campos/programming-ca2.git && \
