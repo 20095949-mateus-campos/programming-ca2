@@ -115,11 +115,11 @@ def read(entity, id=0):
                             json_dump[k] = getattr(row, k).strftime('%Y-%m-%d')
                             continue
                         json_dump[k] = vars(row)[k]
-                    json_dumps.append(json.dumps(json_dump))
+                    json_dumps.append(json_dump)
                     json_dump = {}
 
                 # return list of models
-                return json_dumps
+                return json.dumps(json_dumps)
             else:
                 return []
 
