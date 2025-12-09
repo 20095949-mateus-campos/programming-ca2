@@ -14,7 +14,7 @@ def test_crud_tool(clnt, ctxt):
     new_model = {'name': 'New Test Tool'}
 
     with ctxt:
-        # Read all
+        # Read all when none
         response = json.loads(clnt.get('/api/read/tool/0').text)
         assert len(db.session.query(Tool).all()) == 0
         assert response == []
@@ -22,7 +22,7 @@ def test_crud_tool(clnt, ctxt):
         # Read one when none
         response = json.loads(clnt.get('/api/read/tool/1').text)
         assert response == {}
-
+        
         # Create one
         response = json.loads(clnt.post('/api/create/tool', json=old_model).text)
         assert len(db.session.query(Tool).all()) == 1
@@ -55,7 +55,7 @@ def test_crud_material(clnt, ctxt):
     new_model = {'name': 'New Test Material'}
 
     with ctxt:
-        # Read all
+        # Read all when none
         response = json.loads(clnt.get('/api/read/material/0').text)
         assert len(db.session.query(Material).all()) == 0
         assert response == []
@@ -96,7 +96,7 @@ def test_crud_client(clnt, ctxt):
     new_model = {'name': 'New Test Client', 'email': 'new_client@email.com', 'phone': '+353 01 432 8765', 'address': '2 Back St, City West, Dublin, IE'}
 
     with ctxt:
-        # Read all
+        # Read all when none
         response = json.loads(clnt.get('/api/read/client/0').text)
         assert len(db.session.query(Client).all()) == 0
         assert response == []
