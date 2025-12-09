@@ -85,67 +85,67 @@ In order to replicate this project, follow the steps below:
 3. Connect to the server over SSH.
 4. Clone this repository:
 ```
-$ git clone https://github.com/20095949-mateus-campos/programming-ca2.git
+git clone https://github.com/20095949-mateus-campos/programming-ca2.git
 ```
 5. Check that Python 3.10+ is installed:
 ```
-$ python3 --version
+python3 --version
 ```
 6. Install Node.js 24.11+:
 ```
-$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && \
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && \
 source ~/.bashrc && \
 nvm install v24.11.1
 ```
 7. Check that Node.js 24.11+ was installed:
 ```
-$ node --version
+node --version
 ```
 8. Change into the project's root directory, start it and build it:
 ```
-$ cd programming-ca2 && \
+cd programming-ca2 && \
 npm install && \
 npm build
 ```
 9. Change into the api subdirectory, create a virtual environment and activate it:
 ```
-$ cd api && \
+cd api && \
 python3 -m venv .venv && \
 source .venv/bin/activate
 ```
 10. Install all the project's dependencies:
 ```
-$ pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 11. Initiate, migrate and upgrade the SQLite database:
 ```
-$ flask db init && \
+flask db init && \
 flask db migrate && \
 flask db upgrade
 ```
 12. Leave the virtual environment and change back to the project's root directory:
 ```
-$ deactivate && \
+deactivate && \
 cd ..
 ```
 13. Install Nginx:
 ```
-$ sudo apt-get install nginx -y
+sudo apt-get install nginx -y
 ```
 14. Set the Nginx configuration files:
 ```
-$ sudo rm /etc/nginx/sites-enabled/default && \
+sudo rm /etc/nginx/sites-enabled/default && \
 sudo cp server/programming-ca2.nginx /etc/nginx/sites-available/programming-ca2.nginx && \
 sudo ln -s /etc/nginx/sites-available/programming-ca2.nginx /etc/nginx/sites-enabled/programming-ca2.nginx && \
 sudo sed -i 's/www-data/ubuntu/' /etc/nginx/nginx.conf
 ```
 15. Set the Gunicorn service:
 ```
-$ sudo cp server/programming-ca2.service /etc/systemd/system/programming-ca2.service
+sudo cp server/programming-ca2.service /etc/systemd/system/programming-ca2.service
 ```
 16. Reload system daemons, start Gunicorn service and reload Nginx service:
 ```
-$ sudo systemctl daemon-reload && \
+sudo systemctl daemon-reload && \
 sudo systemctl start programming-ca2 && \
 sudo systemctl reload nginx
 ```
@@ -154,7 +154,7 @@ At this stage, it should be possible to open the application at http://\<replace
 Alternatively, for convenience, simply run the shell script below, which will execute all the commands above automatically:
 
 ```
-$ git clone https://github.com/20095949-mateus-campos/programming-ca2.git && \
+git clone https://github.com/20095949-mateus-campos/programming-ca2.git && \
 cd programming-ca2 && \
 bash setup.sh
 ```
