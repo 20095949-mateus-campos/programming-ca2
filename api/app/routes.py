@@ -112,7 +112,8 @@ def read(entity, id=0):
                         if k == '_sa_instance_state':
                             continue
                         if type(getattr(row, k)) is datetime:
-                            setattr(row, k, getattr(row, k).strftime('%Y-%m-%d'))
+                            json_dump[k] = getattr(row, k).strftime('%Y-%m-%d')
+                            continue
                         json_dump[k] = vars(row)[k]
                     json_dumps.append(json.dumps(json_dump))
                     json_dump = {}
@@ -143,7 +144,8 @@ def read(entity, id=0):
                 if k == '_sa_instance_state':
                     continue
                 if type(getattr(row, k)) is datetime:
-                    setattr(row, k, getattr(row, k).strftime('%Y-%m-%d'))
+                    json_dump[k] = getattr(row, k).strftime('%Y-%m-%d')
+                    continue
                 json_dump[k] = vars(row)[k]
 
             # return model
