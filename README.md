@@ -85,11 +85,13 @@ In order to replicate this project, follow the steps below:
     - add user data (optional):
 ```
 #!/bin/bash
-cd /home/ubuntu/
-touch .bashrc
-git clone https://github.com/20095949-mateus-campos/programming-ca2.git
-cd programming-ca2/
-bash ./setup.sh
+sudo -u ubuntu bash -c '
+	HOME=~
+	cd ~
+	touch .bashrc
+	git clone https://github.com/20095949-mateus-campos/programming-ca2.git
+	cd programming-ca2/
+	bash ./setup.sh'
 ```        
 If adding the optional user data above, the setup is complete and, at this stage, it should be possible to open the application at http://\<replace-with-aws-ec2-ipv4-address\> on a web browser. Note that since no SSL certificates were added to the server, the application cannot be reached over HTTPS. Manually changing the URL to HTTP may be required if the browser defaults to HTTPS (most do).
 
