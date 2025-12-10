@@ -117,7 +117,7 @@ node --version
 ```
 cd programming-ca2 && \
 npm install && \
-npm build
+npm run build
 ```
 9. Change into the api subdirectory, create a virtual environment and activate it:
 ```
