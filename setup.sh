@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install Node.js 24.11+
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 source ~/.bashrc
 nvm install v24.11.1
 
