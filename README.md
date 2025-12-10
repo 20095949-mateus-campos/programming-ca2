@@ -93,7 +93,7 @@ sudo -u ubuntu bash -c '
 	cd programming-ca2/
 	bash ./setup.sh'
 ```        
-If adding the optional user data above, the setup is complete and, at this stage, it should be possible to open the application at http://\<replace-with-aws-ec2-ipv4-address\> on a web browser. Note that since no SSL certificates were added to the server, the application cannot be reached over HTTPS. Manually changing the URL to HTTP may be required if the browser defaults to HTTPS (most do).
+If adding the optional user data above, the setup is complete and, at this stage, it should be possible to open the application at http://\<replace-with-aws-ec2-ipv4-address\> on a web browser (the server may take a couple of minutes to go live after launch). Note that since no SSL certificates were added to the server, the application cannot be reached over HTTPS. Manually changing the URL to HTTP may be required if the browser defaults to HTTPS (most do).
 
 If a manual setup is preferred, keep following the steps:
 
