@@ -170,7 +170,7 @@ Alternatively, simply run the commands below, which will execute all the command
 ```
 git clone https://github.com/20095949-mateus-campos/programming-ca2.git && \
 cd programming-ca2 && \
-bash setup.sh
+bash ./setup.sh
 ```
 
 ## Part 4: Proof of Concept
