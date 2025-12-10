@@ -86,6 +86,7 @@ In order to replicate this project, follow the steps below:
 ```
 #!/bin/bash
 cd /home/ubuntu/
+touch .bashrc
 git clone https://github.com/20095949-mateus-campos/programming-ca2.git
 cd programming-ca2/
 bash ./setup.sh
