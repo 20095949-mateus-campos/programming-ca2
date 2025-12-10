@@ -75,7 +75,7 @@ Based on the requirements gathered and the assignments instructions, the followi
 In order to replicate this project, follow the steps below:
 
 1. Create an AWS account.
-2. Start an EC2 instance:
+2. Launch an EC2 instance:
     - choose Ubuntu as the OS.
     - save the SSH key locally.
     - define the security rules as:
