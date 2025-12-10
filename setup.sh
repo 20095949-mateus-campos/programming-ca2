@@ -7,7 +7,7 @@ nvm install v24.11.1
 
 # Start and build frontend
 npm install
-npm build
+npm run build
 
 # Change into the api subdirectory, create a virtual environment and activate it
 cd api
