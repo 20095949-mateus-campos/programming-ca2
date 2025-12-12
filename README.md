@@ -160,10 +160,11 @@ sudo sed -i 's/www-data/ubuntu/' /etc/nginx/nginx.conf
 ```
 sudo cp server/programming-ca2.service /etc/systemd/system/programming-ca2.service
 ```
-16. Reload system daemons, start Gunicorn service and reload Nginx service:
+16. Reload system daemons, start Gunicorn service and set it to run on startup, and reload Nginx service:
 ```
 sudo systemctl daemon-reload && \
 sudo systemctl start programming-ca2 && \
+sudo systemctl enable programming-ca2 && \
 sudo systemctl reload nginx
 ```
 The application can now be opened at http://\<replace-with-aws-ec2-ipv4-address\> on a web browser (HTTP only; no SSL).

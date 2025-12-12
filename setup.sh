@@ -43,7 +43,8 @@ sudo sed -i 's/www-data/ubuntu/' /etc/nginx/nginx.conf
 # Set the Gunicorn service
 sudo cp server/programming-ca2.service /etc/systemd/system/programming-ca2.service
 
-# Reload system daemons, start Gunicorn service and reload Nginx service
+# Reload system daemons, start Gunicorn service and set it to run on startup, and reload Nginx service
 sudo systemctl daemon-reload
 sudo systemctl start programming-ca2
+sudo systemctl enable programming-ca2
 sudo systemctl reload nginx
