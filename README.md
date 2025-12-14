@@ -388,6 +388,7 @@ Below is the list of references used in this assignment:
     - [Input](https://bulma.io/documentation/form/input/)
     - [How to install Bulma](https://bulma.io/documentation/start/installation/)
     - [Overview of Bulma](https://bulma.io/documentation/start/overview/)
+    - [Footer](https://bulma.io/documentation/layout/footer/)
 - **[Pytest Docs](https://docs.pytest.org/en/stable/)**
     - [How to write and report assertions in tests](https://docs.pytest.org/en/stable/how-to/assert.html)
     - [Fixtures reference](https://docs.pytest.org/en/stable/reference/fixtures.html)
