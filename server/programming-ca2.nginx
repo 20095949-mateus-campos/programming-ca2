@@ -16,16 +16,16 @@
 # Changes have been commented where applicable.
 
 server {
-    listen 80;
-    root /home/ubuntu/programming-ca2/dist;
-    index index.html;
+    listen 80;  # HTTP traffic
+    root /home/ubuntu/programming-ca2/dist;  # react build root
+    index index.html;  # ract build index
 
     location / {
-        try_files $uri $uri/ =404;
+        try_files $uri $uri/ =404;  # 404 if not found
     }
 
     location /api {
         include proxy_params;
-        proxy_pass http://localhost:5000;
+        proxy_pass http://localhost:5000;  # flask app run by gunicorn
     }
 }
