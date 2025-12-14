@@ -1,3 +1,16 @@
+# Module Title:         Programming for Information Systems
+# Module Code:          B9IS123
+# Module Instructor:    Paul Laird
+# Assessment Title:     Reactive Web-Based Information System
+# Assessment Number:    2
+# Assessment Type:      Practical
+# Assessment Weighting: 70%
+# Assessment Due Date:  Sunday, 14 December 2025, 2:28 PM
+# Student Name:         Mateus Fonseca Campos
+# Student ID:           20095949
+# Student Email:        20095949@mydbs.ie
+# GitHub Repo:          https://github.com/20095949-mateus-campos/programming-ca2
+
 # Flask Docs referenced: https://flask.palletsprojects.com/en/stable/testing/.
 
 import pytest
