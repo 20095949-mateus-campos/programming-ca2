@@ -16,14 +16,14 @@
 # Changes have been commented where applicable.
 
 [Unit]
-Description=Programming CA2 Flask API  # service name
-After=network.target  # wait for network interface to start
+Description=Programming CA2 Flask API
+After=network.target
 
 [Service]
-User=ubuntu  # user to run the service
-WorkingDirectory=/home/ubuntu/programming-ca2/api  # where the service application can be found
-ExecStart=/home/ubuntu/programming-ca2/api/.venv/bin/gunicorn -b 127.0.0.1:5000 app:app  # command to run the service application
-Restart=always  # if service stops for any reason, run it again
+User=ubuntu
+WorkingDirectory=/home/ubuntu/programming-ca2/api
+ExecStart=/home/ubuntu/programming-ca2/api/.venv/bin/gunicorn -b 127.0.0.1:5000 app:app
+Restart=always
 
 [Install]
-WantedBy=multi-user.target  # make service available to all users
+WantedBy=multi-user.target
