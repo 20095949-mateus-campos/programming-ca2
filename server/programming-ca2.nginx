@@ -11,6 +11,10 @@
 # Student Email:        20095949@mydbs.ie
 # GitHub Repo:          https://github.com/20095949-mateus-campos/programming-ca2
 
+# This file was originally sourced from Miguel Grinberg's blog.
+# Link: https://blog.miguelgrinberg.com/post/how-to-deploy-a-react--flask-project.
+# Changes have been commented where applicable.
+
 server {
     listen 80;
     root /home/ubuntu/programming-ca2/dist;
