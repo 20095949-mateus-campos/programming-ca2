@@ -114,7 +114,7 @@ export default function Read({entity, json, read, create, update, delete_row, ho
 
                     // build JSON object from formData
                     Object.keys(json).forEach(item => {
-                        if (item != 'id')
+                        if (item != 'id' && formData.get(item))
                             data[item] = formData.get(item)
                     })
                 
